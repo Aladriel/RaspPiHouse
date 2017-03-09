@@ -1,0 +1,85 @@
+#AnchorPane{
+    -fx-background-image: url("graphics/back.jpg");
+    -fx-background-repeat: stretch;   
+    -fx-background-position: center;
+}
+
+#tempIcon{
+    -fx-background-image: url("graphics/Temperature.png");
+    -fx-background-repeat: no-repeat;
+    -fx-alignment: center;
+}
+
+#humIcon{
+    -fx-background-image: url("graphics/Humidity.png");
+    -fx-background-repeat: no-repeat;
+    -fx-alignment: center;
+}
+
+#roompanel{
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2px;
+}
+
+#backIcon{
+    -fx-background-image: url("graphics/back.png");
+    -fx-background-repeat: no-repeat;
+}
+
+#chartIcon1{
+    -fx-background-image: url("graphics/chart.png");
+    -fx-background-repeat: no-repeat;
+}
+
+#chartIcon2{
+    -fx-background-image: url("graphics/chart.png");
+    -fx-background-repeat: no-repeat;
+}
+
+.lightIcon{
+    -fx-background-image: url("graphics/light.png");
+    -fx-background-repeat: no-repeat;
+    -fx-alignment: center;   
+    visibility: visible
+}
+.lightIconOff{
+    -fx-background-image: url("graphics/light.png");
+    -fx-background-repeat: no-repeat;
+    -fx-alignment: center;   
+    visibility: hidden
+}
+
+.fireIcon{
+    -fx-background-image: url("graphics/fire.png");
+    -fx-background-repeat: no-repeat;
+    -fx-alignment: center;
+     visibility: visible
+}
+.fireIconOff{
+    -fx-background-image: url("graphics/fire.png");
+    -fx-background-repeat: no-repeat;
+    -fx-alignment: center;
+     visibility: hidden
+}
+.motionIcon{
+    -fx-background-image: url("graphics/motion.png");
+    -fx-background-repeat: no-repeat;
+    -fx-alignment: center;
+    visibility: visible
+}
+.motionIconOff{
+    -fx-background-image: url("graphics/motion.png");
+    -fx-background-repeat: no-repeat;
+    -fx-alignment: center;
+    visibility: hidden
+}
+.speakerOn{
+    -fx-background-image: url("graphics/speakerOn.png");
+    -fx-background-repeat: no-repeat;
+    -fx-alignment: center;   
+}
+.speakerOff{
+    -fx-background-image: url("graphics/speakerOff.png");
+    -fx-background-repeat: no-repeat;
+    -fx-alignment: center;   
+}

@@ -1,0 +1,16 @@
+<Config>
+    <Device type="slave" masterIp="192.168.1.2" id="1" log_level="ALL"/>
+    <Sensors>
+		<Sensor type="Thermo" pin="22"/>
+        <Sensor type="Humidity" pin="22"/>
+        <Sensor type="Light" pin="17"/>
+    </Sensors>
+	<Rooms>
+		<Room name="Lounge"/>
+		<Room name="Kitchen"/>
+		<Room name="Main Bedroom"/>
+		<Room name="Kuba"/>
+		<Room name="Jurek"/>
+		<Room name="Kids"/>
+	</Rooms>
+</Config>
