@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users>
+ 3   <user>
+ 4       <name>mama</name>
+ 5       <login>mama</login>
+ 6       <password>mama123</password>
+ 7   </user>
+ 8   <user>
+ 4       <name>tata</name>
+ 5       <login>tata</login>
+ 6       <password>tata123</password>
+12   </user>
+ 8   <user>
+ 4       <name>dziecko</name>
+ 5       <login>dziecko</login>
+ 6       <password>dziecko123</password>
+12   </user>
+13 </users>
