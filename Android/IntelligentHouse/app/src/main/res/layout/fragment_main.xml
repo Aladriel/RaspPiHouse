@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,9 +9,93 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="rasppi.intelligenthouse.MainActivity$PlaceholderFragment">
 
-    <TextView
-        android:id="@+id/section_label"
+    <ImageView
+        android:id="@+id/tempIcon"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="31dp"
+        app:srcCompat="@drawable/temperature"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
+    <ImageView
+        android:id="@+id/humIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="67dp"
+        app:srcCompat="@drawable/humidity"
+        android:layout_below="@+id/tempIcon"
+        android:layout_alignStart="@+id/tempIcon"
+        android:layout_alignEnd="@+id/tempIcon" />
+
+    <ImageView
+        android:id="@+id/lightIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/tempIcon"
+        android:layout_marginEnd="29dp"
+        android:layout_marginTop="14dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/light" />
+
+    <ImageView
+        android:id="@+id/fireIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/humIcon"
+        android:layout_alignStart="@+id/lightIcon"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/fire" />
+
+    <ImageView
+        android:id="@+id/motionIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/fireIcon"
+        android:layout_below="@+id/fireIcon"
+        android:layout_marginTop="87dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/motion" />
+
+    <ImageButton
+        android:id="@+id/speakerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/speakeroff"
+        android:layout_alignTop="@+id/chartButton"
+        android:layout_alignStart="@+id/humIcon" />
+
+    <ImageButton
+        android:id="@+id/chartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/chart"
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/motionIcon"
+        android:layout_toEndOf="@+id/tempValue" />
+
+    <TextView
+        android:id="@+id/tempValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="14dp"
+        android:text="Temp"
+        android:textColor="@android:color/white"
+        android:layout_alignTop="@+id/lightIcon"
+        android:layout_toEndOf="@+id/tempIcon" />
+
+    <TextView
+        android:id="@+id/humValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tempValue"
+        android:layout_alignTop="@+id/fireIcon"
+        android:layout_marginTop="11dp"
+        android:text="Humidity"
+        android:textColor="@android:color/white" />
 </RelativeLayout>

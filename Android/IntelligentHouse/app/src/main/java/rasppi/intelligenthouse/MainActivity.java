@@ -35,15 +35,16 @@ public class MainActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    static View rootView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+      //  Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+       // setSupportActionBar(toolbar);
+      //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -61,6 +62,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                
+                /// TODO: 23.03.2017 get access to fragment 
+                /*
+                Fragment currentFragment = getActivity().getFragmentManager().findFragmentById(R.id.fragment_container);
+                TextView textViewTemp = (TextView) rootView.findViewById(R.id.tempValue);
+                System.out.println(rootView.findViewById(R.id.tempValue));
+                textViewTemp.setText("50,0");
+                */
             }
         });
 
@@ -117,10 +126,29 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            return rootView;
+            switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
+                case 1:
+                    rootView = inflater.inflate(R.layout.fragment_main, container, false);
+                    return rootView;
+                case 2:
+                    rootView = inflater.inflate(R.layout.room_fragment_2, container, false);
+                    return rootView;
+                case 3:
+                    rootView = inflater.inflate(R.layout.room_fragment_3, container, false);
+                    return rootView;
+                case 4:
+                    rootView = inflater.inflate(R.layout.room_fragment_4, container, false);
+                    return rootView;
+                case 5:
+                    rootView = inflater.inflate(R.layout.room_fragment_5, container, false);
+                    return rootView;
+                case 6:
+                    rootView = inflater.inflate(R.layout.room_fragment_6, container, false);
+                    return rootView;
+                default:
+                    rootView = inflater.inflate(R.layout.fragment_main, container, false);
+                    return rootView;
+            }
         }
     }
 
@@ -143,19 +171,26 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Show 6 total pages.
+            return 6;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
+            //TODO change to room names sent from master
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return "ROOM 1";
                 case 1:
-                    return "SECTION 2";
+                    return "ROOM 2";
                 case 2:
-                    return "SECTION 3";
+                    return "ROOM 3";
+                case 3:
+                    return "ROOM 4";
+                case 4:
+                    return "ROOM 5";
+                case 5:
+                    return "ROOM 6";
             }
             return null;
         }
