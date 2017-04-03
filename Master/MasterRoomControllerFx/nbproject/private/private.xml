@@ -7,9 +7,12 @@
             <file>file:/C:/Users/Bartek/Desktop/gitRaspPi/RaspPiHouse/Master/MasterRoomControllerFx/src/Controller/ScreenSaverFxController.java</file>
             <file>file:/C:/Users/Bartek/Desktop/gitRaspPi/RaspPiHouse/Master/MasterRoomControllerFx/src/Controller/MasterRoomControllerFx.java</file>
             <file>file:/C:/Users/Bartek/Desktop/gitRaspPi/RaspPiHouse/Master/MasterRoomControllerFx/src/View/MainScreen.fxml</file>
+            <file>file:/C:/Users/Bartek/Desktop/gitRaspPi/RaspPiHouse/Master/MasterRoomControllerFx/src/Model/Sensors/SensorNotAvailableException.java</file>
             <file>file:/C:/Users/Bartek/Desktop/gitRaspPi/RaspPiHouse/Master/MasterRoomControllerFx/src/Controller/RoomChartController.java</file>
             <file>file:/C:/Users/Bartek/Desktop/gitRaspPi/RaspPiHouse/Master/MasterRoomControllerFx/src/Model/ConfigManager.java</file>
+            <file>file:/C:/Users/Bartek/Desktop/gitRaspPi/RaspPiHouse/Master/MasterRoomControllerFx/src/Model/Sensors/LightSensor.java</file>
             <file>file:/C:/Users/Bartek/Desktop/gitRaspPi/RaspPiHouse/Master/MasterRoomControllerFx/src/Model/RoomController.java</file>
+            <file>file:/C:/Users/Bartek/Desktop/gitRaspPi/RaspPiHouse/Master/MasterRoomControllerFx/src/Model/Sensors/Sensor.java</file>
             <file>file:/C:/Users/Bartek/Desktop/gitRaspPi/RaspPiHouse/Master/MasterRoomControllerFx/src/Controller/RoomScreenFxController.java</file>
         </group>
     </open-files>
