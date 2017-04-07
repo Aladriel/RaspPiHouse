@@ -14,10 +14,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import rasppi.intelligenthouse.Comms.CommsProtocol;
+import rasppi.intelligenthouse.Comms.IReadingsEvent;
+import rasppi.intelligenthouse.Sensors.SensorReading;
+import rasppi.intelligenthouse.Sensors.SensorReadings;
+import rasppi.intelligenthouse.Sensors.SensorType;
 import rasppi.intelligenthouse.controller.FragmentController;
 
 
-public class MainActivity extends AppCompatActivity implements FragmentController.OnFragmentInteractionListener  {
+public class MainActivity extends AppCompatActivity implements FragmentController.OnFragmentInteractionListener, IReadingsEvent {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -49,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements FragmentControlle
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initArrays();
       //  Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
        // setSupportActionBar(toolbar);
       //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -115,24 +119,119 @@ public class MainActivity extends AppCompatActivity implements FragmentControlle
             motionArray[room] = state;
     }
 
-    private void initArrays(){
-        for(int i =0;i<6;i++){
-            tempArray[1] = 0;
-            humArray[1] = 0;
-            lightArray[1] = 0;
-            fireArray[1] = 0;
-            motionArray[1] = 0;
-        }
-    }
 
     @Override
     public void myAction() {
 
     }
 
+    @Override
+    public void ReadingsReceived(byte[] readings) {
+        SensorReadings sReadings = CommsProtocol.processReadingMessage(readings);
+        processReadings(sReadings,sReadings.getDeviceId());
+    }
+
+    private void processReadings(SensorReadings readings, int deviceId)
+    {
+        if(readings == null)
+            return;
+
+        if(readings.getCount() > 0)
+        {
+            for(SensorReading reading : readings.getReadings())
+            {
+                switch(reading.getType())
+                {
+                    case Light:
+                    {
+                        processLightReading(reading, deviceId);
+                        break;
+                    }
+                    case Humidity:
+                    {
+                        processHumidityReading(reading, deviceId);
+                        break;
+                    }
+                    case Thermo:
+                    {
+                        processThermoReading(reading, deviceId);
+                        break;
+                    }
+                    case Smoke:
+                    {
+                        processSmokeReading(reading, deviceId);
+                        break;
+                    }
+                    case Motion:
+                    {
+                        processMotionReading(reading, deviceId);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    private void processLightReading(SensorReading reading, int deviceId)
+    {
+        try
+        {
+            setLight(deviceId, reading.getValue());
+        }
+        catch(NullPointerException e)
+        {
+        }
+    }
+
+    private void processSmokeReading(SensorReading reading, int deviceId)
+    {
+        try
+        {
+            setFire(deviceId, reading.getValue());
+        }
+        catch(NullPointerException e)
+        {
+        }
+    }
 
 
 
+    private void processMotionReading(SensorReading reading, int deviceId)
+    {
+        try
+        {
+            setMotion(deviceId, reading.getValue());
+        }
+        catch(NullPointerException e)
+        {
+        }
+    }
+
+
+    private void processThermoReading(SensorReading reading, int deviceId)
+    {
+        try
+        {
+            setTemp(deviceId, reading.getValue());
+        }
+        catch(NullPointerException e)
+        {
+        }
+    }
+
+    private void processHumidityReading(SensorReading reading, int deviceId)
+    {
+        try
+        {
+            setHum(deviceId,reading.getValue());
+        }
+        catch(NullPointerException e)
+        {
+        }
+    }
+
+
+
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -154,7 +253,7 @@ public class MainActivity extends AppCompatActivity implements FragmentControlle
 
         return super.onOptionsItemSelected(item);
     }
-
+*/
 
 
     /**

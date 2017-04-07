@@ -52340,9 +52340,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
 <record>
-  <date>2016-12-16T23:46:02</date>
-  <millis>1481928362654</millis>
+  <date>2017-04-05T18:55:18</date>
+  <millis>1491411318133</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
   <level>WARNING</level>
@@ -52356,112 +52360,82 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-16T23:47:33</date>
-  <millis>1481928453030</millis>
+  <date>2017-04-06T09:33:15</date>
+  <millis>1491463995973</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
-  <level>WARNING</level>
-  <class>RoomController.RoomController$1</class>
-  <method>run</method>
-  <thread>19</thread>
-  <message>sleep interrupted</message>
-</record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2016-12-16T23:56:58</date>
-  <millis>1481929018869</millis>
-  <sequence>0</sequence>
-  <logger>RCLogger</logger>
-  <level>WARNING</level>
-  <class>RoomController.RoomController$1</class>
-  <method>run</method>
-  <thread>19</thread>
-  <message>sleep interrupted</message>
-</record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2016-12-16T23:57:13</date>
-  <millis>1481929033556</millis>
-  <sequence>0</sequence>
-  <logger>RCLogger</logger>
-  <level>WARNING</level>
-  <class>RoomController.RoomController$1</class>
-  <method>run</method>
-  <thread>19</thread>
-  <message>sleep interrupted</message>
-</record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2016-12-16T23:58:56</date>
-  <millis>1481929136435</millis>
-  <sequence>0</sequence>
-  <logger>RCLogger</logger>
-  <level>WARNING</level>
-  <class>RoomController.RoomController$1</class>
-  <method>run</method>
-  <thread>23</thread>
-  <message>sleep interrupted</message>
+  <level>SEVERE</level>
+  <class>RoomController.RoomController</class>
+  <method>readUserFromXML</method>
+  <thread>16</thread>
+  <message>XML document structures must start and end within the same entity.</message>
 </record>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-17T00:00:37</date>
-  <millis>1481929237923</millis>
+  <date>2017-04-06T10:06:36</date>
+  <millis>1491465996180</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
-  <level>WARNING</level>
-  <class>RoomController.RoomController$1</class>
-  <method>run</method>
-  <thread>19</thread>
-  <message>sleep interrupted</message>
+  <level>SEVERE</level>
+  <class>RoomController.RoomController</class>
+  <method>readUserFromXML</method>
+  <thread>16</thread>
+  <message>For input string: "
+   		 "</message>
 </record>
-</log>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-17T00:02:00</date>
-  <millis>1481929320666</millis>
+  <date>2017-04-06T10:13:17</date>
+  <millis>1491466397331</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
-  <level>WARNING</level>
-  <class>RoomController.RoomController$1</class>
-  <method>run</method>
-  <thread>19</thread>
-  <message>sleep interrupted</message>
+  <level>SEVERE</level>
+  <class>RoomController.RoomController</class>
+  <method>readUserFromXML</method>
+  <thread>16</thread>
+  <message>For input string: "
+   		 "</message>
 </record>
-</log>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-17T11:37:16</date>
-  <millis>1481971036985</millis>
+  <date>2017-04-06T10:18:39</date>
+  <millis>1491466719605</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
-  <level>WARNING</level>
-  <class>RoomController.RoomController$1</class>
-  <method>run</method>
-  <thread>19</thread>
-  <message>sleep interrupted</message>
+  <level>SEVERE</level>
+  <class>RoomController.RoomController</class>
+  <method>readUserFromXML</method>
+  <thread>16</thread>
+  <message>For input string: "
+   		 "</message>
 </record>
-</log>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-17T11:38:14</date>
-  <millis>1481971094572</millis>
+  <date>2017-04-06T11:25:36</date>
+  <millis>1491470736381</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.RoomController</class>
+  <method>readUserFromXML</method>
+  <thread>16</thread>
+  <message>For input string: "
+   		 "</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-06T11:31:52</date>
+  <millis>1491471112007</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
   <level>WARNING</level>
@@ -52475,8 +52449,36 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-17T11:39:30</date>
-  <millis>1481971170113</millis>
+  <date>2017-04-06T20:39:34</date>
+  <millis>1491503974641</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.RoomController$1</class>
+  <method>run</method>
+  <thread>23</thread>
+  <message>sleep interrupted</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-06T20:46:33</date>
+  <millis>1491504393533</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.RoomController$1</class>
+  <method>run</method>
+  <thread>23</thread>
+  <message>sleep interrupted</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-06T20:47:37</date>
+  <millis>1491504457623</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
   <level>WARNING</level>
@@ -52490,8 +52492,78 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-17T11:43:46</date>
-  <millis>1481971426257</millis>
+  <date>2017-04-06T20:50:20</date>
+  <millis>1491504620059</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.RoomController$1</class>
+  <method>run</method>
+  <thread>23</thread>
+  <message>sleep interrupted</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-06T21:06:20</date>
+  <millis>1491505580719</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.RoomController$1</class>
+  <method>run</method>
+  <thread>19</thread>
+  <message>sleep interrupted</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-06T21:12:58</date>
+  <millis>1491505978622</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.RoomController$1</class>
+  <method>run</method>
+  <thread>19</thread>
+  <message>sleep interrupted</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-06T21:44:43</date>
+  <millis>1491507883977</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.RoomController$1</class>
+  <method>run</method>
+  <thread>19</thread>
+  <message>sleep interrupted</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-06T21:48:10</date>
+  <millis>1491508090130</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.RoomController$1</class>
+  <method>run</method>
+  <thread>19</thread>
+  <message>sleep interrupted</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-07T11:33:17</date>
+  <millis>1491557597250</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
   <level>WARNING</level>
@@ -52505,8 +52577,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-17T23:58:16</date>
-  <millis>1482015496901</millis>
+  <date>2017-04-07T12:18:09</date>
+  <millis>1491560289106</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
   <level>WARNING</level>
@@ -52520,8 +52592,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-17T23:59:54</date>
-  <millis>1482015594346</millis>
+  <date>2017-04-07T12:19:36</date>
+  <millis>1491560376777</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
   <level>WARNING</level>
@@ -52535,8 +52607,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-18T00:03:31</date>
-  <millis>1482015811726</millis>
+  <date>2017-04-07T12:24:14</date>
+  <millis>1491560654563</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
   <level>WARNING</level>
@@ -52550,8 +52622,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-18T00:04:03</date>
-  <millis>1482015843945</millis>
+  <date>2017-04-07T12:30:42</date>
+  <millis>1491561042410</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
   <level>WARNING</level>
@@ -52565,50 +52637,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2016-12-18T00:13:53</date>
-  <millis>1482016433281</millis>
-  <sequence>0</sequence>
-  <logger>RCLogger</logger>
-  <level>WARNING</level>
-  <class>RoomController.RoomController$1</class>
-  <method>run</method>
-  <thread>19</thread>
-  <message>sleep interrupted</message>
-</record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2016-12-18T00:28:06</date>
-  <millis>1482017286578</millis>
-  <sequence>0</sequence>
-  <logger>RCLogger</logger>
-  <level>WARNING</level>
-  <class>RoomController.RoomController$1</class>
-  <method>run</method>
-  <thread>19</thread>
-  <message>sleep interrupted</message>
-</record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2017-01-20T16:31:00</date>
-  <millis>1484926260880</millis>
+  <date>2017-04-07T12:31:44</date>
+  <millis>1491561104187</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
   <level>WARNING</level>
@@ -52622,8 +52652,22 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-01-20T16:34:20</date>
-  <millis>1484926460686</millis>
+  <date>2017-04-07T12:33:38</date>
+  <millis>1491561218015</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.RoomController$1</class>
+  <method>run</method>
+  <thread>23</thread>
+  <message>sleep interrupted</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-07T19:14:19</date>
+  <millis>1491585259134</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
   <level>WARNING</level>
@@ -52637,8 +52681,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2017-01-20T16:34:38</date>
-  <millis>1484926478624</millis>
+  <date>2017-04-07T20:53:02</date>
+  <millis>1491591182958</millis>
   <sequence>0</sequence>
   <logger>RCLogger</logger>
   <level>WARNING</level>
@@ -52647,76 +52691,4 @@
   <thread>19</thread>
   <message>sleep interrupted</message>
 </record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2017-01-20T16:34:51</date>
-  <millis>1484926491460</millis>
-  <sequence>0</sequence>
-  <logger>RCLogger</logger>
-  <level>WARNING</level>
-  <class>RoomController.RoomController$1</class>
-  <method>run</method>
-  <thread>19</thread>
-  <message>sleep interrupted</message>
-</record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2017-01-20T16:35:14</date>
-  <millis>1484926514298</millis>
-  <sequence>0</sequence>
-  <logger>RCLogger</logger>
-  <level>WARNING</level>
-  <class>RoomController.RoomController$1</class>
-  <method>run</method>
-  <thread>19</thread>
-  <message>sleep interrupted</message>
-</record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2017-01-20T17:06:52</date>
-  <millis>1484928412793</millis>
-  <sequence>0</sequence>
-  <logger>RCLogger</logger>
-  <level>WARNING</level>
-  <class>RoomController.RoomController$1</class>
-  <method>run</method>
-  <thread>19</thread>
-  <message>sleep interrupted</message>
-</record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-<record>
-  <date>2017-03-15T13:26:39</date>
-  <millis>1489580799605</millis>
-  <sequence>0</sequence>
-  <logger>RCLogger</logger>
-  <level>WARNING</level>
-  <class>RoomController.RoomController$1</class>
-  <method>run</method>
-  <thread>19</thread>
-  <message>sleep interrupted</message>
-</record>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
-</log>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE log SYSTEM "logger.dtd">
-<log>
 </log>

@@ -1,0 +1,26 @@
+<users>
+ 	<user>
+   	<id>0</id>
+    	<name>userName</name>
+    	<login>aaa</login>
+    	<password>qwe</password>
+   	<privileges>
+   		 <privilege>5</privilege>
+   		 <privilege>24585</privilege>
+   		 <privilege>16386</privilege>
+   		 <privilege>8197</privilege>
+   	 </privileges>
+	</user>
+	<user>
+   	<id>1</id>
+    	<name>user2</name>
+    	<login>aaa</login>
+    	<password>qwertyuiop</password>
+   	<privileges>
+   		 <privilege>5</privilege>
+   		 <privilege>24585</privilege>
+   		 <privilege>16386</privilege>
+   		 <privilege>8197</privilege>
+   	 </privileges>
+	</user>
+</users>
