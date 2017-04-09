@@ -27,8 +27,25 @@ public class LightSensor extends Sensor
     
     public float getReading() throws SensorNotAvailableException
     {
-
-        return 1;
+        float v = 0;
+        ProcessBuilder pb = new ProcessBuilder("python", "/home/pi/Projects/Python/read_light.py", "17");
+        try
+        {
+            Process p = pb.start();
+            BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	    //System.out.println("value is : " + in.readLine());
+            if(in.readLine().charAt(0) == '0')
+                v = 1;
+            else
+                v = 0;
+        }
+        catch (IOException ex)
+        {
+            Logger.getLogger(LightSensor.class.getName()).log(Level.SEVERE, null, ex);
+            throw new SensorNotAvailableException();
+        }
+        
+        return v;
     }
     
 }

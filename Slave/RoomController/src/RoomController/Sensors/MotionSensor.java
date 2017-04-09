@@ -27,8 +27,23 @@ public class MotionSensor extends Sensor
     @Override
     public float getReading() throws  SensorNotAvailableException
     {
-
-        return 1;
+        float v = 0;
+        ProcessBuilder pb = new ProcessBuilder("python", "/home/pi/Projects/Python/get_humidity_from_dht22.py", "22");
+        try
+        {
+            Process p = pb.start();
+            BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            if(in.readLine().charAt(0) == '0')
+                v = 1;
+            else
+                v = 0;
+        }
+        catch (IOException ex)
+        {
+            Logger.getLogger(MotionSensor.class.getName()).log(Level.SEVERE, null, ex);
+            throw new SensorNotAvailableException();
+        }
+        return v;
     }
     
 }

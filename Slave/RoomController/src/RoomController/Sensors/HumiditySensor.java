@@ -28,8 +28,21 @@ public class HumiditySensor extends Sensor
     @Override
     public float getReading() throws  SensorNotAvailableException
     {
-
-        return 10;
+        float value = 0;
+        ProcessBuilder pb = new ProcessBuilder("python", "/home/pi/Projects/Python/get_humidity_from_dht22.py", "22");
+        try
+        {
+            Process p = pb.start();
+            BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	    //System.out.println("value is : " + in.readLine());
+            value = Float.parseFloat(in.readLine());
+        }
+        catch (IOException ex)
+        {
+            Logger.getLogger(HumiditySensor.class.getName()).log(Level.SEVERE, null, ex);
+            throw new SensorNotAvailableException();
+        }
+        return value;
     }
     
 }
