@@ -242,8 +242,8 @@ public class RoomController implements IReadingsEvent, ILoginEvent
         }
     }
     
+    private static boolean isSent = false;
     
-        
     private void processMotionReading(SensorReading reading, int deviceId)
     {
         try
@@ -254,7 +254,18 @@ public class RoomController implements IReadingsEvent, ILoginEvent
                     screenController.setMotion(reading.getValue(), 0, deviceId-1);
                 else
                     screenController.setMotion(reading.getValue(), 1, deviceId - 4);
-                //if(screenController.isAlertOn()) sendEmailNotification();
+                
+                if (isSent == true && screenController.isAlertOn() == false)
+                {
+                    isSent = false;
+                }
+                
+                // sends email notification if email hasn't been sent by now
+                if(screenController.isAlertOn() && reading.getValue() == 1 && isSent == false) 
+                {
+                    isSent = true;
+                    sendEmailNotification();
+                }
             }
         }
         catch(NullPointerException e)
