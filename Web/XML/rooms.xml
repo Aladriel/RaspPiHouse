@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rooms>
+    <room>
+	    <id>0</id>
+        <name>Lounge</name>
+		<functions>
+			<function>Light_control</function>
+			<function>Blinds_control</function>
+			<function>Voice_streaming</function>
+		</functions>
+    </room>
+    <room>
+		<id>1</id>
+        <name>Kitchen</name>
+		<functions>
+			<function>Light_control</function>
+			<function>Blinds_control</function>
+			<function>Voice_streaming</function>
+		</functions>
+   </room>
+    <room>
+		<id>2</id>
+        <name>Main Bedroom</name>
+	    <functions>
+			<function>Light_control</function>
+			<function>Blinds_control</function>
+			<function>Voice_streaming</function>
+		 </functions>
+   </room>
+    <room>
+		<id>3</id>
+        <name>Kuba</name>
+		<functions>
+			<function>Light_control</function>
+			<function>Blinds_control</function>
+			<function>Video_Streaming</function>
+			<function>Voice_streaming</function>
+		</functions>
+   </room>
+    <room>
+		<id>4</id>
+        <name>Jurek</name>
+		<functions>
+			<function>Light control</function>
+			<function>Blinds control</function>
+			<function>Voice streaming</function>
+		</functions>
+   </room>
+    <room>
+		<id>5</id>
+		<name>Kids</name>
+		<functions>
+			<function>Light control</function>
+			<function>Blinds control</function>
+			<function>Voice streaming</function>
+			<function>Video Streaming</function>
+		</functions>
+   </room>
+ </rooms>
