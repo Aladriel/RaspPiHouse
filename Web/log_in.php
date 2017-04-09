@@ -33,7 +33,7 @@
 		
             if($adminLogin == $login)
             {
-                if($adminPassword == $password)
+                if(password_verify($password,$adminPassword))
                 {
                     $_SESSION['logged_in'] = true;
                     $_SESSION['user'] = $adminName;
