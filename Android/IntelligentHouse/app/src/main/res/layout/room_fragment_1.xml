@@ -47,11 +47,11 @@
         android:id="@+id/fireIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/lightIcon"
-        android:layout_below="@+id/tempIcon"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="34dp"
         android:visibility="invisible"
-        app:srcCompat="@drawable/fire" />
+        app:srcCompat="@drawable/fire"
+        android:layout_below="@+id/tempIcon"
+        android:layout_alignStart="@+id/lightIcon" />
 
     <ImageView
         android:id="@+id/motionIcon"

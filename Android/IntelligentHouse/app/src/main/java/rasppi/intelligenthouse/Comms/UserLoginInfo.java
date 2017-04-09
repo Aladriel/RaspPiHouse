@@ -5,17 +5,23 @@
  */
 package rasppi.intelligenthouse.Comms;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.net.Socket;
 
 /**
  *
  * @author Bartek
  */
-public class UserLoginInfo {
+public class UserLoginInfo implements Serializable {
     
     private String login;
     private String password;
+    private String[] roomNames = new String[6];
     private int[] privileges;
+
 
     private Socket connection;
 
@@ -62,5 +68,13 @@ public class UserLoginInfo {
 
     public void setPrivileges(int[] privileges) {
         this.privileges = privileges;
+    }
+
+    public String[] getRoomNames() {
+        return roomNames;
+    }
+
+    public void setRoomNames(String[] roomNames) {
+        this.roomNames = roomNames;
     }
 }

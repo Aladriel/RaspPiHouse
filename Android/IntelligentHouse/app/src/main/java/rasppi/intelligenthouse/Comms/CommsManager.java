@@ -7,6 +7,7 @@ package rasppi.intelligenthouse.Comms;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.net.Socket;
 import java.net.SocketException;
 
@@ -14,7 +15,7 @@ import java.net.SocketException;
  *
  * @author eyrmin
  */
-public class CommsManager implements ICommsEvent
+public class CommsManager implements ICommsEvent, Serializable
 {
     private Socket connection;
     private String masterIp;

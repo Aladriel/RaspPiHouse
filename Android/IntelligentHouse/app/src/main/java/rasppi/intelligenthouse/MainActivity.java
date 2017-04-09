@@ -1,5 +1,6 @@
 package rasppi.intelligenthouse;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,8 +15,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import rasppi.intelligenthouse.Comms.CommsManager;
 import rasppi.intelligenthouse.Comms.CommsProtocol;
 import rasppi.intelligenthouse.Comms.IReadingsEvent;
+import rasppi.intelligenthouse.Comms.UserLoginInfo;
 import rasppi.intelligenthouse.Sensors.SensorReading;
 import rasppi.intelligenthouse.Sensors.SensorReadings;
 import rasppi.intelligenthouse.Sensors.SensorType;
@@ -47,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements FragmentControlle
     private float lightArray[] = new float[fragmentAmount];
     private float fireArray[] = new float[fragmentAmount];
     private float motionArray[] = new float[fragmentAmount];
+    UserLoginInfo userInfo;
+    CommsManager commsManager;
 
     private FragmentController fragmentArray[] = new FragmentController[6];
 
@@ -61,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements FragmentControlle
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
+        Intent i = getIntent();
+        userInfo = (UserLoginInfo)i.getSerializableExtra("userLoginInfo");
+        commsManager = LoginActivity.getInstance().getCommsManager();
+        commsManager.addReadingEventListener(this);
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
@@ -75,11 +84,7 @@ public class MainActivity extends AppCompatActivity implements FragmentControlle
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                setTemp(5,30);
-                setHum(5,50);
-                setLight(5,1);
-                setFire(5,1);
-                setMotion(5,1);
+
 
             }
         });
@@ -88,35 +93,81 @@ public class MainActivity extends AppCompatActivity implements FragmentControlle
 
     }
 
-    private void setTemp(int room, float temp){
-        if(fragmentArray[room] != null)
-            fragmentArray[room].setTemp(temp);
-        else
-            tempArray[room] = temp;
+    private void setTemp(final int room, final float temp){
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+                if(fragmentArray[room] != null)
+                    fragmentArray[room].setTemp(temp);
+                else
+                    tempArray[room] = temp;
+            }
+        });
+
+
     }
-    private void setHum(int room, float hum){
-        if(fragmentArray[room] != null)
-            fragmentArray[room].setHum(hum);
-        else
-            humArray[room] = hum;
+    private void setHum(final int room, final float hum){
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+                if(fragmentArray[room] != null)
+                    fragmentArray[room].setHum(hum);
+                else
+                    humArray[room] = hum;
+
+            }
+        });
+
+
     }
-    private void setLight(int room, float state){
-        if(fragmentArray[room] != null)
-            fragmentArray[room].setLight(state);
-        else
-            lightArray[room] = state;
+    private void setLight(final int room, final float state){
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+
+                if(fragmentArray[room] != null)
+                    fragmentArray[room].setLight(state);
+                else
+                    lightArray[room] = state;
+
+            }
+        });
+
     }
-    private void setFire(int room, float state){
-        if(fragmentArray[room] != null)
-            fragmentArray[room].setFire(state);
-        else
-            fireArray[room] = state;
+    private void setFire(final int room, final float state){
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if(fragmentArray[room] != null)
+                    fragmentArray[room].setFire(state);
+                else
+                    fireArray[room] = state;
+
+            }
+        });
+
+
     }
-    private void setMotion(int room, float state){
-        if(fragmentArray[room] != null)
-            fragmentArray[room].setMotion(state);
-        else
-            motionArray[room] = state;
+    private void setMotion(final int room, final float state){
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if(fragmentArray[room] != null)
+                    fragmentArray[room].setMotion(state);
+                else
+                    motionArray[room] = state;
+
+            }
+        });
+
+
     }
 
 
@@ -285,17 +336,17 @@ public class MainActivity extends AppCompatActivity implements FragmentControlle
             //TODO change to room names sent from master
             switch (position) {
                 case 0:
-                    return "ROOM 1";
+                    return userInfo.getRoomNames()[0];
                 case 1:
-                    return "ROOM 2";
+                    return userInfo.getRoomNames()[1];
                 case 2:
-                    return "ROOM 3";
+                    return userInfo.getRoomNames()[2];
                 case 3:
-                    return "ROOM 4";
+                    return userInfo.getRoomNames()[3];
                 case 4:
-                    return "ROOM 5";
+                    return userInfo.getRoomNames()[4];
                 case 5:
-                    return "ROOM 6";
+                    return userInfo.getRoomNames()[5];
             }
             return null;
         }

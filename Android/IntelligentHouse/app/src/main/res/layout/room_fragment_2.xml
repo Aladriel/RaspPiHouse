@@ -15,8 +15,8 @@
         android:id="@+id/tempIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="30dp"
         app:srcCompat="@drawable/temperature"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
@@ -25,11 +25,12 @@
         android:id="@+id/humIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="67dp"
-        app:srcCompat="@drawable/humidity"
-        android:layout_below="@+id/tempIcon"
+        android:layout_alignEnd="@+id/tempIcon"
         android:layout_alignStart="@+id/tempIcon"
-        android:layout_alignEnd="@+id/tempIcon" />
+        android:layout_centerHorizontal="false"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="67dp"
+        app:srcCompat="@drawable/humidity" />
 
     <ImageView
         android:id="@+id/lightIcon"
@@ -46,8 +47,9 @@
         android:id="@+id/fireIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/humIcon"
         android:layout_alignStart="@+id/lightIcon"
+        android:layout_below="@+id/tempIcon"
+        android:layout_marginTop="36dp"
         android:visibility="invisible"
         app:srcCompat="@drawable/fire" />
 
@@ -55,9 +57,8 @@
         android:id="@+id/motionIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/fireIcon"
-        android:layout_below="@+id/fireIcon"
-        android:layout_marginTop="87dp"
+        android:layout_alignStart="@+id/fireIcon"
+        android:layout_centerVertical="true"
         android:visibility="invisible"
         app:srcCompat="@drawable/motion" />
 
@@ -65,18 +66,21 @@
         android:id="@+id/speakerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:srcCompat="@drawable/speakeroff"
+        android:layout_alignParentBottom="true"
         android:layout_alignTop="@+id/chartButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/speakeroff" />
 
     <ImageButton
         android:id="@+id/chartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/humIcon"
-        android:layout_below="@+id/motionIcon"
-        android:layout_marginTop="11dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="15dp"
         android:background="@android:color/transparent"
         app:srcCompat="@drawable/chart" />
 
@@ -96,7 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/tempValue"
-        android:layout_alignTop="@+id/fireIcon"
+        android:layout_centerVertical="true"
         android:layout_marginTop="12dp"
         android:textColor="@android:color/white" />
 </RelativeLayout>

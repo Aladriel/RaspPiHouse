@@ -32,6 +32,7 @@ public abstract class CommsProtocol
     public static final byte TAG_MSG_SENDER_LOGIN = 0x08;
     public static final byte TAG_MSG_SENDER_PASSWORD = 0x09;
     public static final byte TAG_MSG_SENDER_PRIVILEGES = 0x0A;
+    public static final byte TAG_MSG_ROOM_NAME = 0x0B;
 
 
 
@@ -73,6 +74,8 @@ public abstract class CommsProtocol
     public static UserLoginInfo processLoginMessage(byte[] message)
     {
         UserLoginInfo user = new UserLoginInfo();
+        String[] roomNames = new String[6];
+        int roomCount=0;
 
         for(Tlv t : Tlv.parse(message))
         {
@@ -95,11 +98,15 @@ public abstract class CommsProtocol
                                     .asIntBuffer();
                     int[] array = new int[intBuf.remaining()];
                     intBuf.get(array);
-
                     user.setPrivileges(array);
+                    break;
+                case TAG_MSG_ROOM_NAME:
+                    roomNames[roomCount] = new String(t.getValue(),StandardCharsets.UTF_8);
+                    roomCount++;
                     break;
             }
         }
+        user.setRoomNames(roomNames);
 
         return user;
     }

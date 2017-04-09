@@ -15,30 +15,26 @@
         android:id="@+id/tempIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="31dp"
         app:srcCompat="@drawable/temperature"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignTop="@+id/lightIcon"
+        android:layout_alignStart="@+id/humIcon" />
 
     <ImageView
         android:id="@+id/humIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="67dp"
-        app:srcCompat="@drawable/humidity"
-        android:layout_below="@+id/tempIcon"
-        android:layout_alignStart="@+id/tempIcon"
-        android:layout_alignEnd="@+id/tempIcon" />
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="23dp"
+        app:srcCompat="@drawable/humidity" />
 
     <ImageView
         android:id="@+id/lightIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/tempIcon"
-        android:layout_marginEnd="29dp"
-        android:layout_marginTop="14dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="19dp"
         android:visibility="invisible"
         app:srcCompat="@drawable/light" />
 
@@ -46,8 +42,8 @@
         android:id="@+id/fireIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/humIcon"
         android:layout_alignStart="@+id/lightIcon"
+        android:layout_below="@+id/lightIcon"
         android:visibility="invisible"
         app:srcCompat="@drawable/fire" />
 
@@ -55,9 +51,8 @@
         android:id="@+id/motionIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/fireIcon"
+        android:layout_alignStart="@+id/fireIcon"
         android:layout_below="@+id/fireIcon"
-        android:layout_marginTop="87dp"
         android:visibility="invisible"
         app:srcCompat="@drawable/motion" />
 
@@ -65,38 +60,39 @@
         android:id="@+id/speakerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="93dp"
+        android:layout_toEndOf="@+id/tempIcon"
         android:background="@android:color/transparent"
-        app:srcCompat="@drawable/speakeroff"
-        android:layout_alignTop="@+id/chartButton"
-        android:layout_centerHorizontal="true" />
+        app:srcCompat="@drawable/speakeroff" />
 
     <ImageButton
         android:id="@+id/chartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/humIcon"
-        android:layout_below="@+id/motionIcon"
-        android:layout_marginTop="11dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="19dp"
         android:background="@android:color/transparent"
         app:srcCompat="@drawable/chart" />
-
-    <TextView
-        android:id="@+id/tempValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/lightIcon"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="14dp"
-        android:layout_toEndOf="@+id/tempIcon"
-        android:text="Temp"
-        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/humValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tempValue"
-        android:layout_alignTop="@+id/fireIcon"
-        android:layout_marginTop="12dp"
-        android:textColor="@android:color/white" />
+        android:layout_centerVertical="true"
+        android:layout_marginStart="135dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tempValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fireIcon"
+        android:layout_marginStart="135dp"
+        android:text="TextView" />
+
 </RelativeLayout>

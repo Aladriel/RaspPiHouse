@@ -21,6 +21,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -62,6 +63,8 @@ public class LoginActivity extends AppCompatActivity {
      */
     private UserLoginTask mAuthTask = null;
 
+
+
     private CommsManager commsManager;
 
     // UI references.
@@ -69,12 +72,22 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    public static LoginActivity instance;
 
+    public static LoginActivity getInstance()
+    {
+        return instance;
+    }
+
+    public CommsManager getCommsManager() {
+        return commsManager;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        instance=this;
         commsManager = new CommsManager("192.168.1.18 ", 12001);
         commsManager.start();
         // Set up the login form.
@@ -265,6 +278,8 @@ public class LoginActivity extends AppCompatActivity {
             if (loginSuccess) {
                 //set bundle with commsManager and privilegies and room names
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                intent.putExtra("userLoginInfo", userInfo);
+                //intent.putExtra("commsManager", commsManager);
                 startActivity(intent);
             } else {
                 Context context = getApplicationContext();
