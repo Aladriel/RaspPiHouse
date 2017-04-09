@@ -8,6 +8,8 @@ if(!isset($_SESSION['logged_in']))
     exit();
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -20,10 +22,7 @@ if(!isset($_SESSION['logged_in']))
     <link rel="icon" href="../../favicon.ico"><!-- ! -->
 
     <title>Pi house settings</title>
-	
-	
-    <link href="css/mobile.css" rel="stylesheet">
-	
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -32,6 +31,8 @@ if(!isset($_SESSION['logged_in']))
 
     <!-- Custom styles for this template -->
     <link href="css/layout.css" rel="stylesheet">
+
+
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -42,15 +43,10 @@ if(!isset($_SESSION['logged_in']))
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-        <!-- Custom styles for this template -->
-    <link href="css/carousel.css" rel="stylesheet">
-    
   </head>
 
   <body>
 
-  
     <div class="container">
 
       <!-- Static navbar -->
@@ -67,15 +63,15 @@ if(!isset($_SESSION['logged_in']))
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav">
-              <li class="active" role="presentation"><a href="admin_panel.php">Home</a></li>
+              <li role="presentation"><a href="admin_panel.php">Home</a></li>
               <li role="presentation"><a href="#">About</a></li>
               <li role="presentation"><a href="#">Contact</a></li>
               <li role="presentation" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Action<span class="caret"></span></a>
-                <ul class="dropdown-menu" >
+                <ul class="dropdown-menu">
                   <li role="presentation" ><a href="addUser.php">Add user</a></li>
                   <li role="presentation"><a href="privileges.php">Change user privileges</a></li>
-                  <li role="presentation"><a href="addSensor.php">Add sensor</a></li>
+                  <li role="presentation" class="active"><a href="addSensor.php">Add sensor</a></li>
                 </ul>
               </li>
             </ul>
@@ -90,38 +86,47 @@ if(!isset($_SESSION['logged_in']))
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
- 
 
-      <div class="page-header">
-        <h1>Welcome to the Administrator Panel!</h1>
+      <!-- Main component for a primary marketing message or call to action -->
+
+
+       <div class="page-header">
+        <h1>Add new sensor</h1>
       </div>
-
       
-      
-    <div class="container marketing">
+       <div class="main">
+           
 
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="images/ic_settings_input_antenna_black_48dp_2x.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Sensors</h2>
-          <p>Here you can add new sensors that will be handled by the Rasp Pi House.</p>
-          <p><a class="btn btn-default" href="addSensor.php" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="images/ic_person_outline_black_48dp_2x.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Users</h2>
-          <p>Here you can add new users to the system.</p>
-          <p><a class="btn btn-default" href="addUser.php" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="images/ic_supervisor_account_black_48dp_2x.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Privileges</h2>
-          <p>Go here, if you want to change privileges of a particular user.</p>
-          <p><a class="btn btn-default" href="privileges.php" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-    </div><!-- container marketing -->
+          <form action="/action_page.jsp">
+            Sensor name:<br>
+            <input type="text" name="firstname" value="">
+            
+            <br><br>
+            
+            Location:<br>
+            <select>
+              <option value="diningRoom">Dining Room</option>
+              <option value="livingRoom">Living Room</option>
+              <option value="kitchen">Kitchen</option>
+              <option value="basement">Basement</option>
+              <option value="garage">Garage</option>
+              <option value="entryDoors">Entry Doors</option>
+            </select>
+            
+            <br><br>
+ 
+             <p>Sensor type:</p>
+            <input type="radio" name="option" value="temperature" checked> Temperature <br>
+            <input type="radio" name="option" value="smoke"> Smoke <br>
+            <input type="radio" name="option" value="air pollution"> Air pollution <br>
+            <input type="radio" name="option" value="anti-burglary"> Anti-burglary <br>
+            <br>
+            <input type="submit" value="Add">
+          </form> 
+         
+       </div>
+
+
 
     </div> <!-- /container -->
 

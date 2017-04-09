@@ -7,7 +7,13 @@ if(!isset($_SESSION['logged_in']))
     header('Location: index.php');
     exit();
 }
+
+require('./Room.php');
+require('./User.php');
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pl">
   <head>
@@ -20,10 +26,7 @@ if(!isset($_SESSION['logged_in']))
     <link rel="icon" href="../../favicon.ico"><!-- ! -->
 
     <title>Pi house settings</title>
-	
-	
-    <link href="css/mobile.css" rel="stylesheet">
-	
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -32,6 +35,8 @@ if(!isset($_SESSION['logged_in']))
 
     <!-- Custom styles for this template -->
     <link href="css/layout.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/carousel.css" type="text/css"/>
+
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -42,15 +47,10 @@ if(!isset($_SESSION['logged_in']))
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-        <!-- Custom styles for this template -->
-    <link href="css/carousel.css" rel="stylesheet">
-    
   </head>
 
   <body>
 
-  
     <div class="container">
 
       <!-- Static navbar -->
@@ -67,14 +67,14 @@ if(!isset($_SESSION['logged_in']))
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav">
-              <li class="active" role="presentation"><a href="admin_panel.php">Home</a></li>
+              <li role="presentation"><a href="admin_panel.php">Home</a></li>
               <li role="presentation"><a href="#">About</a></li>
               <li role="presentation"><a href="#">Contact</a></li>
               <li role="presentation" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Action<span class="caret"></span></a>
-                <ul class="dropdown-menu" >
+                <ul class="dropdown-menu">
                   <li role="presentation" ><a href="addUser.php">Add user</a></li>
-                  <li role="presentation"><a href="privileges.php">Change user privileges</a></li>
+                  <li role="presentation" class="active"><a href="privileges.php">Change user privileges</a></li>
                   <li role="presentation"><a href="addSensor.php">Add sensor</a></li>
                 </ul>
               </li>
@@ -90,38 +90,82 @@ if(!isset($_SESSION['logged_in']))
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
- 
 
-      <div class="page-header">
-        <h1>Welcome to the Administrator Panel!</h1>
+      <!-- Main component for a primary marketing message or call to action -->
+
+	  <?php
+		
+		$config = simplexml_load_file('XML/config.xml');
+		$usersXML = simplexml_load_file('XML/users.xml');
+		$rooms = null;
+		$users = null;
+		
+			
+				if($config  == null || $usersXML == null)
+					echo "nie udało się wczytać pliku".'<br />';
+				if($config->Rooms[0] == null)
+				{
+					echo "NULL".'<br />';
+				}
+				else
+				{
+					$i=0;
+					
+					foreach($config->Rooms[0] as $room)
+					{				
+						$atr = $room->attributes();
+						$rooms[$i] = new Room( $atr['id'],$atr['name'], $atr['sensors']);
+					$i++;	
+					}
+					
+					
+				}	
+	$users  = User::createUsersFromXml('XML/users.xml');			
+	  ?>
+
+       <div class="page-header">
+	   
+        <h1>User privileges settings</h1>
       </div>
-
       
-      
-    <div class="container marketing">
+       <div class="main">
+	 
+	  <form action="choose.php" method="post">	   
+          <p>User:</p>
+            <select name = "user">
+			<?php 
+			
+				for($i=0;$i<count($users);$i++)
+				echo'<option value="'.$users[$i]->getId().'">'.$users[$i]->getName().'</option>'
 
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="images/ic_settings_input_antenna_black_48dp_2x.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Sensors</h2>
-          <p>Here you can add new sensors that will be handled by the Rasp Pi House.</p>
-          <p><a class="btn btn-default" href="addSensor.php" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="images/ic_person_outline_black_48dp_2x.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Users</h2>
-          <p>Here you can add new users to the system.</p>
-          <p><a class="btn btn-default" href="addUser.php" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="images/ic_supervisor_account_black_48dp_2x.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Privileges</h2>
-          <p>Go here, if you want to change privileges of a particular user.</p>
-          <p><a class="btn btn-default" href="privileges.php" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-    </div><!-- container marketing -->
+			?>
+            </select>
+          <br>
+          <br>
+          <p>Room: </p>
+            <select name = "room">
+			<?php 
+			
+				for($i=0;$i<count($rooms);$i++)
+				echo'<option value="'.$rooms[$i]->getId().'">'.$rooms[$i]->getName().'</option>'
+			?>
+            </select>
+          <br>
+          <br>
+
+          <input type="submit" value="Choose">
+		  </form>
+      </div>
+	  
+
+	  
+
+
+
+	  
+
+	  
+	  
 
     </div> <!-- /container -->
 

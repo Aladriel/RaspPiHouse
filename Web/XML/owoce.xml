@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users>
+	<user>
+		<id>0</id>
+		<name>mama</name>
+		<login>mama</login>
+		<password>mama123</password>
+		<privileges>
+			<privilege> 5 </privilege>
+			<privilege> 24585 </privilege>
+			<privilege> 16386 </privilege>
+			<privilege> 8197 </privilege>
+		</privileges>
+	</user>
+	<user>
+		<id>1</id>
+		<name>tata</name>
+		<login>tata</login>
+		<password>tata123</password>
+		<privileges>
+			<privilege> 444 </privilege>
+			<privilege> 00001111 </privilege>
+		</privileges>
+	</user>
+	<user>
+		<id>2</id>
+		<name>dziecko</name>
+		<login>dziecko</login>
+		<password>dziecko123</password>
+		<privileges>
+			<privilege> 555 </privilege>
+			<privilege> 00001111 </privilege>
+		</privileges>
+	</user>
+</users>

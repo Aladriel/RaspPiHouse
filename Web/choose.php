@@ -1,4 +1,75 @@
 <?php
+	require('./User.php');
+	require('./Room.php');
+	if((!isset($_POST['user']) ) || (!isset($_POST['room'])))
+    {
+        header('Location: index.php');
+        exit();
+		
+    }
+	
+		$users  = User::createUsersFromXml('XML/users.xml');
+		$rooms = Room::createRoomsFromXml('XML/rooms.xml'); 
+		$functions = null;
+		$privilegesValues = null;
+		
+	    $user_id = (int)$_POST['user'];
+        $room_id = (int)$_POST['room'];
+		
+		echo "odebrano : ". $user_id . "  " . $room_id."<br>";
+			
+			
+			
+			
+		$user = User::getUserById($users,$user_id); 
+		$room = Room::getRoomById($rooms,$room_id);
+		$privilege = User::getPrivilege($user->getPrivileges(),$room_id);
+		
+		if($user == null)
+			echo " Blad wczytywania usera";
+		
+		if($room == null)
+			echo "Blad wczytywania pokoju ";
+		
+		echo $user->getName()."   w pokoju: ".$room->getName(). " ma uprawnienia: ".$privilege;
+		
+		 
+		 for($i=0;$i<count($room->getFunctions());$i++)
+		 {
+			$functions[$i] = Room::getFunctionById($room,$i);
+			echo "<br>".Room::getFunctionById($room,$i);
+			$privilegesValues[$i] = User::getPrivilegeValueByFunctionId($privilege,$i);
+			echo " : ".User::getPrivilegeValueByFunctionId($privilege,$i);
+		 }
+	     
+		 
+		 
+		 User::createXMLFile($users);
+		 
+   
+			
+		/*$usersXML = simplexml_load_file('XML/users.xml');
+		
+				if( $usersXML == null)
+					echo "nie udało się wczytać pliku".'<br />';
+				else
+					echo "wczytano plik pomyślnie".'<br />';
+
+		
+		
+		echo $usersXML->user[$user_id]->name;
+		echo $usersXML->user[$user_id]->privileges->privilege[0];*/
+				
+		
+					
+
+		
+?>
+
+
+
+
+<?php
     session_start();
 
 if(!isset($_SESSION['logged_in']))
@@ -21,8 +92,12 @@ if(!isset($_SESSION['logged_in']))
 
     <title>Pi house settings</title>
 	
-	
+	<script type="text/javascript" src="js/skrypt.js"></script>
     <link href="css/mobile.css" rel="stylesheet">
+	<link rel = "stylesheet" href = "fontello/fontello_set/css/fontello.css">
+	
+	
+	
 	
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +123,7 @@ if(!isset($_SESSION['logged_in']))
     
   </head>
 
-  <body>
+  <body onLoad="main()">
 
   
     <div class="container">
@@ -93,35 +168,54 @@ if(!isset($_SESSION['logged_in']))
  
 
       <div class="page-header">
-        <h1>Welcome to the Administrator Panel!</h1>
+        <h1>Welcome!</h1>
       </div>
-
-      
-      
-    <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="images/ic_settings_input_antenna_black_48dp_2x.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Sensors</h2>
-          <p>Here you can add new sensors that will be handled by the Rasp Pi House.</p>
-          <p><a class="btn btn-default" href="addSensor.php" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="images/ic_person_outline_black_48dp_2x.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Users</h2>
-          <p>Here you can add new users to the system.</p>
-          <p><a class="btn btn-default" href="addUser.php" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="images/ic_supervisor_account_black_48dp_2x.png" alt="Generic placeholder image" width="140" height="140">
-          <h2>Privileges</h2>
-          <p>Go here, if you want to change privileges of a particular user.</p>
-          <p><a class="btn btn-default" href="privileges.php" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-    </div><!-- container marketing -->
+	  
+		<form action="changePrivileges.php" method="post">
+	  		<?php
+			
+				echo '<input type="hidden" name="User_Id" value="'.$user_id.'" />';
+				echo '<input type="hidden" name="Room_Id" value="'.$room_id.'" />';
+				
+				 for($i=0;$i<count($functions);$i++)
+				 {
+					 
+					echo '<p>'.$functions[$i].'</p>';
+					// echo '<div class="checkbox">
+					//	   <label><input type="checkbox" value="">'.$functions[$i].'</label>
+					//	   </div>';
+					echo '<select name ='.'"'.(String)$functions[$i].'"'.'>';
+					if($privilegesValues[$i] == 1)
+					{
+						echo'<option value= true>'.'true'.'</option>';
+						echo'<option value= false>'.'false'.'</option>';
+					}
+					else
+					{
+						echo'<option value= false>'.'false'.'</option>';
+						echo'<option value= true>'.'true'.'</option>';
+					}
+					echo '</select>';
+					
+					echo '</br>';
+				 }
+	  
+			?>
+			
+			<button type="submit" class="btn btn-default" id = "button1">Click me!</button>
+			</form>
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="fb col-sm-2 " id ><i class="icon-facebook"></i></div>
+			<?php
+				//echo'<p  id="a1">'.$privilegesValues[0].'</p>';
+			?>
 
     </div> <!-- /container -->
 
@@ -136,3 +230,24 @@ if(!isset($_SESSION['logged_in']))
     <script src="js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
