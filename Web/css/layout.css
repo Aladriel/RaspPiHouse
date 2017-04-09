@@ -1,0 +1,33 @@
+body
+{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #eef;
+}
+
+.navbar 
+{
+  margin-bottom: 20px;
+}
+
+.main
+{
+ font-size: 120%;
+}
+
+#logout
+{
+	float:right;
+	padding: 5px;
+}
+.btn-info
+{
+	background-color: #aaaaaa;
+	border-color: #ababab;
+	}
+	
+.btn-info:hover
+{
+	background-color: #888888 ;
+	border-color: #ababab;
+}

@@ -1,0 +1,119 @@
+@media all and (min-width:0px) and (max-width:400px)
+{
+  .menu_mobilne
+    {
+        width:30%;
+        margin-left: 5%;
+        font-size:12px;
+        font-weight: bold;
+    }
+
+}
+@media all and (min-width:0px) and (max-width:768px)  
+{
+
+    .menu_mobilne
+    {
+        width:70%;
+        margin-left: 5%;
+        font-size:16px;
+        padding:4%;
+        text-align: center;
+        font-weight: bold;  
+    }
+    
+    @media all and (min-width:0px) and (max-width:420px)
+    {
+      .menu_mobilne
+        {
+            width:60%;
+            font-size:11px;       
+        }
+        .left_bar
+        {
+            margin-top: 10%;
+        }
+        
+        .right_bar
+        {
+            margin-top: 10%;
+        }
+        
+            .baner
+        {
+            margin-top: 40%;
+            font-size: 15px;
+        }
+
+
+    }
+
+    .left_bar
+    {
+        text-align: center;
+        width:100%;
+        clear: both;
+        padding:5%;
+        margin:0;
+    }
+    
+    .obiad
+    {
+        visibility: hidden;
+        margin: 0;
+        padding: 0;
+        height: 0;
+        width:0;
+    }
+    
+    
+    .left_bar img
+    {
+        visibility:hidden;
+        margin: 0;
+        padding: 0;
+        height: 0;
+        width:0;
+    }
+    
+    
+    .middle
+    {
+        padding-top: 10%;
+    }
+    .right_bar
+    {
+        margin:0;
+        width:100;
+        clear: both;
+    }
+    .logo
+    {
+         padding-left:10%;
+         padding-right: 10%;
+    }
+  
+    .menu_list
+    {
+        font-size: 12px;
+    
+    }
+    
+    .baner
+{
+    margin-top: 10%;
+    font-size: 20px;
+}
+    
+    
+    h1
+    {
+        font-size: 16px;
+    }
+    h2
+    {
+        font-size: 14px;
+    }
+    
+}
+
