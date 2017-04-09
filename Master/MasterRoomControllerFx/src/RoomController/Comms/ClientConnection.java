@@ -23,6 +23,7 @@ public class ClientConnection
     public ClientConnection(SlaveConnectionTask connection)
     {
         client = connection;
+        deviceType = "Slave";
     }
     
     public ClientConnection(SlaveConnectionTask connection, int devId)

@@ -33,6 +33,7 @@ public abstract class CommsProtocol
     public static final byte TAG_MSG_SENDER_LOGIN = 0x08;
     public static final byte TAG_MSG_SENDER_PASSWORD = 0x09;
     public static final byte TAG_MSG_SENDER_PRIVILEGES = 0x0A;
+    public static final byte TAG_MSG_ROOM_NAME = 0x0B;
     
     
     public static final byte MSG_TYPE_READING_DATA = 0x01;
@@ -104,6 +105,33 @@ public abstract class CommsProtocol
         return userInfo;
     }
     
+    public static byte[] createLoginConfirmationMessage(UserLoginInfo userInfo, String[] roomNames){
+        byte[] msg = null;
+        ByteArrayOutputStream s = new ByteArrayOutputStream();
+        try {
+            s.write(buildTLV(TAG_MSG_TYPE, 1, MSG_TYPE_LOGIN_INFO));
+            byte[] log = userInfo.getLogin().getBytes(StandardCharsets.UTF_8);
+            s.write(buildTLV(TAG_MSG_SENDER_LOGIN, log.length, log));
+            byte[] pwd = userInfo.getPassword().getBytes(StandardCharsets.UTF_8);
+            s.write(buildTLV(TAG_MSG_SENDER_PASSWORD, pwd.length, pwd));          
+            ByteBuffer byteBuffer = ByteBuffer.allocate(userInfo.getPrivileges().length * 4);        
+            IntBuffer intBuffer = byteBuffer.asIntBuffer();
+            intBuffer.put(userInfo.getPrivileges());
+            byte[] privil = byteBuffer.array();
+            s.write(buildTLV(TAG_MSG_SENDER_PRIVILEGES, privil.length, privil));
+            for(int i =0; i<roomNames.length;i++){
+                byte[] roomName = roomNames[i].getBytes(StandardCharsets.UTF_8);
+                s.write(buildTLV(TAG_MSG_ROOM_NAME, roomName.length, roomName));
+            }
+            
+        } catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }
+        msg = s.toByteArray();
+        return  msg;
+    }
+    
     public static byte[] createLoginConfirmationMessage(UserLoginInfo userInfo){
         byte[] msg = null;
         ByteArrayOutputStream s = new ByteArrayOutputStream();
@@ -112,14 +140,7 @@ public abstract class CommsProtocol
             byte[] log = userInfo.getLogin().getBytes(StandardCharsets.UTF_8);
             s.write(buildTLV(TAG_MSG_SENDER_LOGIN, log.length, log));
             byte[] pwd = userInfo.getPassword().getBytes(StandardCharsets.UTF_8);
-            s.write(buildTLV(TAG_MSG_SENDER_PASSWORD, pwd.length, pwd));
-            /*
-            ByteBuffer byteBuffer = ByteBuffer.allocate(userInfo.getPrivileges().length * 4);        
-            IntBuffer intBuffer = byteBuffer.asIntBuffer();
-            intBuffer.put(userInfo.getPrivileges());
-            byte[] privil = byteBuffer.array();
-            ///byte[] privil = ByteBuffer.allocate(4).put
-            s.write(buildTLV(TAG_MSG_SENDER_PRIVILEGES, privil.length, privil));*/
+            s.write(buildTLV(TAG_MSG_SENDER_PASSWORD, pwd.length, pwd));                   
         } catch (IOException e){
             e.printStackTrace();
             return null;

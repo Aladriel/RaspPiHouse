@@ -318,11 +318,11 @@ public class RoomController implements IReadingsEvent, ILoginEvent
     public void loginInfoReceived(UserLoginInfo loginInfo) {
          //decode hash
         if(readUserFromXML(loginInfo)) {          
-            byte[] message = CommsProtocol.createLoginConfirmationMessage(loginInfo);
+            byte[] message = CommsProtocol.createLoginConfirmationMessage(loginInfo, roomNames);
             commsManager.sendToMobile(message,loginInfo.getConnection());
         } else {
-            loginInfo.setLogin("a");
-            loginInfo.setPassword("a");
+            loginInfo.setLogin("");
+            loginInfo.setPassword("");
             byte[] message = CommsProtocol.createLoginConfirmationMessage(loginInfo);
             commsManager.sendToMobile(message,loginInfo.getConnection());
         }
