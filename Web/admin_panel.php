@@ -103,19 +103,19 @@ if(!isset($_SESSION['logged_in']))
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <img class="img-circle" src="images/ic_settings_input_antenna_black_48dp_2x.png" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle" src="images/ic_settings_input_antenna_black_36px.svg" alt="antenna image" width="140" height="140">
           <h2>Sensors</h2>
           <p>Here you can add new sensors that will be handled by the Rasp Pi House.</p>
           <p><a class="btn btn-default" href="addSensor.php" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="images/ic_person_outline_black_48dp_2x.png" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle" src="images/ic_supervisor_account_black_36px.svg" alt="account image" width="140" height="140">
           <h2>Users</h2>
           <p>Here you can add new users to the system.</p>
           <p><a class="btn btn-default" href="addUser.php" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="images/ic_supervisor_account_black_48dp_2x.png" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle" src="images/ic_person_outline_black_36px.svg" alt="person image" width="140" height="140">
           <h2>Privileges</h2>
           <p>Go here, if you want to change privileges of a particular user.</p>
           <p><a class="btn btn-default" href="privileges.php" role="button">View details &raquo;</a></p>
