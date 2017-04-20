@@ -76,6 +76,7 @@ if(!isset($_SESSION['logged_in']))
                   <li role="presentation" ><a href="addUser.php">Add user</a></li>
                   <li role="presentation"><a href="privileges.php">Change user privileges</a></li>
                   <li role="presentation"><a href="addSensor.php">Add sensor</a></li>
+				  <li role="presentation"><a href="editUserData.php">Edit user data</a></li>
                 </ul>
               </li>
             </ul>
@@ -96,7 +97,19 @@ if(!isset($_SESSION['logged_in']))
         <h1>Welcome to the Administrator Panel!</h1>
       </div>
 
-      
+      	   <?php
+	    if(isset($_SESSION['i_userCreated']))
+            {
+                echo '<div class="alert alert-success">'.$_SESSION['i_userCreated'].'</div>';
+                unset($_SESSION['i_userCreated']);
+            }else
+		   
+		    if(isset($_SESSION['e_userCreated']))
+            {
+                echo '<div class="alert alert-warning">'.$_SESSION['e_userCreated'].'</div>';
+                unset($_SESSION['e_userCreated']);
+            }
+	   ?>
       
     <div class="container marketing">
 
