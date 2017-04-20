@@ -7,16 +7,17 @@ class User
 	private $_login;
 	private $_password;
 	private $_privileges;
+	private $_image;
 	
 	
-	
-   public function __construct($id,$name, $login, $password, $privileges)
+   public function __construct($id,$name, $login, $password, $privileges, $image)
    {
 	  $this->_id = $id;
 	  $this->_name = $name;
 	  $this->_login = $login;
 	  $this->_password = $password;
-	  $this->_privileges = $privileges;    
+	  $this->_privileges = $privileges;   
+	  $this->_image = $image;	  
    }
    
       public function getId()
@@ -51,9 +52,34 @@ class User
 
    } 
    
+   public function getImage()
+   {
+	   return $this->_image;
+   }
+   
+      public function setPrivilegeByRoomId($roomId, $privilege)
+   {
+
+               
+
+	   
+	   for($i=0;$i<count($this->_privileges);$i++)
+	   {
+		   if((($this->_privileges[$i])&57344)>>13 == $roomId)
+			   $this->_privileges[$i] = $privilege; 
+	   }
+	   
+	   
+	   	   foreach($this->getPrivileges() as $privilege)
+	   {				
+	      echo "p: ".$privilege;
+	      echo "<br>";  
+	     }
+	      
+   } 
 
    
-   public static function getPrivilege($privileges, $roomId)
+   public static function getPrivilege($privileges,$roomId )
    {
 	   foreach($privileges as $privilege)
 	   {
@@ -66,6 +92,23 @@ class User
 	   }
 	   return null;
    }
+   /*
+   public function setPrivilegeByRoomId($roomId, $newPrivilege)
+   {
+	   $t = $this->getPrivileges();
+	   
+	   foreach($this->getPrivileges() as $privilege)
+	   {
+		    if(($privilege&57344) >>13 == $roomId)
+			{
+				echo "Zapisuje new: ".$newPrivilege;
+				echo "<br>";
+				$privilege = $newPrivilege;
+			}
+	   }
+
+   }*/
+   
    
    public static function getPrivilegeValueByFunctionId($_privilege,$functionId)
    {
@@ -132,6 +175,7 @@ class User
 				$_name = $user->name;
 				$_login = $user->login;
 				$_password = $user->password;
+				$_image = $user->image;
 						
 				$j=0;
 				foreach($user->privileges[0] as $privilege)
@@ -140,7 +184,7 @@ class User
 					$j++;
 				}
 						
-				$usersTable[$i] = new User($_id,$_name, $_login,$_password,$_privileges);
+				$usersTable[$i] = new User($_id,$_name, $_login,$_password,$_privileges, $_image);
 						
 				//echo "User:".$usersTable[$i]->getName().'<br />';
 				$pr = $usersTable[$i]->getPrivileges();
@@ -155,10 +199,36 @@ class User
    
    }
    
+   public static function generatePrivileges($amount)
+   {
+	   $newPrivileges=array();
+	   $tmp = 0;
+	   for($i=0;$i<$amount;$i++)
+	   {
+		   
+		   $newPrivileges[$i] = $tmp;
+		   (int)$tmp+= 8192;
+		   
+	   }
+	   return $newPrivileges;
+   }
+   
+   public static function isExistingEmail($users,$email)
+   {
+	   
+	   
+	   foreach ($users as $user)
+	   {
+		   if($user->getLogin()== $email)
+			   return true;
+	   }
+	   
+	   return false;
+   }
    
    public static function createXMLFile($usersTable)
    {
-		$usersXML = file('XML/owoce.xml');
+		$usersXML = file('/home/pi/Java/MasterRoomControllerFx/dist/users.xml');
 
 		$wynik = '<?xml version="1.0" encoding="utf-8"?>'."\r\n";
 		$wynik .= '<users>'."\r\n";
@@ -169,6 +239,7 @@ class User
 			$wynik .= "\t\t".'<name>'.$user->getName().'</name>'."\r\n";
 			$wynik .= "\t\t".'<login>'.$user->getLogin().'</login>'."\r\n";
 			$wynik .= "\t\t".'<password>'.$user->getPassword().'</password>'."\r\n";
+			$wynik .= "\t\t".'<image>'.$user->getImage().'</image>'."\r\n";
 				$wynik .= "\t\t".'<privileges>'."\r\n";
 				foreach ($user->getPrivileges() as $privilege) 
 				{
@@ -180,7 +251,7 @@ class User
 
 		$wynik .= '</users>'."\r\n";
 
-		file_put_contents('XML/owoce.xml', $wynik);
+		file_put_contents('/home/pi/Java/MasterRoomControllerFx/dist/users.xml', $wynik);
 
    }
 }
