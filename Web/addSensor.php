@@ -72,6 +72,7 @@ if(!isset($_SESSION['logged_in']))
                   <li role="presentation" ><a href="addUser.php">Add user</a></li>
                   <li role="presentation"><a href="privileges.php">Change user privileges</a></li>
                   <li role="presentation" class="active"><a href="addSensor.php">Add sensor</a></li>
+				  <li role="presentation"><a href="editUserData.php">Edit user data</a></li>
                 </ul>
               </li>
             </ul>

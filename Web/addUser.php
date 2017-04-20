@@ -31,6 +31,7 @@ if(!isset($_SESSION['logged_in']))
 
     <!-- Custom styles for this template -->
     <link href="css/layout.css" rel="stylesheet">
+	<link rel = "stylesheet" href = "fontello/fontello_user/css/fontello.css">
     <link rel="stylesheet" href="css/carousel.css" type="text/css"/>
 
 
@@ -72,6 +73,7 @@ if(!isset($_SESSION['logged_in']))
                   <li role="presentation"  class="active"><a href="addUser.php">Add user</a></li>
                   <li role="presentation"><a href="privileges.php">Change user privileges</a></li>
                   <li role="presentation"><a href="addSensor.php">Add sensor</a></li>
+				  <li role="presentation"><a href="editUserData.php">Edit user data</a></li>
                 </ul>
               </li>
             </ul>
@@ -90,25 +92,65 @@ if(!isset($_SESSION['logged_in']))
 
 
        <div class="page-header">
-        <h1>User privileges settings</h1>
+        <h1>Create new user</h1>
+		<i class="icon-user-plus"></i>
+		
       </div>
       
-       <div class="main">
+       <div class="main form">
            
 
-          <form action="/action_page.jsp">
-            User name:<br>
-            <input type="text" name="firstname" value="">
+            <form action="add_user.php" method="post" enctype="multipart/form-data">	
             
-            <br><br>
- 
-             <p>Privilege level:</p>
-            <input type="radio" name="option" value="basic" checked> Basic <br>
-            <input type="radio" name="option" value="regular"> Regular<br>
-            <input type="radio" name="option" value="extended"> Extended <br>
-            <input type="radio" name="option" value="admin"> Administrator <br>
-            <br>
-            <input type="submit" value="Add">
+            <input type="text" name="name" value="Marcin" class="addUser" placeholder="User name">
+                    <?php
+					
+					
+                        if(isset($_SESSION['e_name']))
+                        {
+                            echo '<div class="alert alert-danger" role="alert">'.$_SESSION['e_name'].'</div>';
+                            unset($_SESSION['e_name']);
+                        }
+						else
+							echo '<br><br>';
+                   ?>
+		    <input type="text" name="email" value="marcin@o2.pl" class="addUser"  placeholder="E-mail">
+			        <?php
+                        if(isset($_SESSION['e_email']))
+                        {
+                            echo '<div class="alert alert-danger" role="alert">'.$_SESSION['e_email'].'</div>';
+                            unset($_SESSION['e_email']);
+                        }
+						else
+							echo '<br><br>';
+                   ?>
+			
+            <input type="password" name="password_1" value="qwertyuiop" class="addUser"  placeholder="Password">
+			                   <?php
+                            if(isset($_SESSION['e_password']))
+                            {
+                                echo '<div class="alert alert-danger" role="alert">'.$_SESSION['e_password'].'</div>';
+                                unset($_SESSION['e_password']);
+                            }
+							else
+								echo '<br><br>';
+                   ?>
+			
+            <input type="password" name="password_2" value="qwertyuiop" class="addUser"  placeholder="Repeat password">
+			<br><br>
+			Select image to upload as profile picture:<br/>
+			<input type="file" name="fileToUpload" class="addUser" id="fileToUpload">
+			<br><br>
+					<?php
+                            if(isset($_SESSION['e_image']))
+                            {
+                                echo '<div class="alert alert-danger" role="alert">'.$_SESSION['e_image'].'</div>';
+                                unset($_SESSION['e_image']);
+                            }
+							else
+								echo '<br><br>';
+                   ?>
+            <input type="submit" class="btn btn-primary addUser" value="Add">
           </form> 
          
        </div>
