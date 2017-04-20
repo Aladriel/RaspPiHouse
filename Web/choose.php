@@ -1,6 +1,10 @@
 <?php
+	$develop = false;
+	
 	require('./User.php');
 	require('./Room.php');
+
+	
 	if((!isset($_POST['user']) ) || (!isset($_POST['room'])))
     {
         header('Location: index.php');
@@ -8,15 +12,15 @@
 		
     }
 	
-		$users  = User::createUsersFromXml('XML/users.xml');
-		$rooms = Room::createRoomsFromXml('XML/rooms.xml'); 
+		$users  = User::createUsersFromXml('/home/pi/Java/MasterRoomControllerFx/dist/users.xml');
+		$rooms = Room::createRoomsFromXml('/home/pi/Java/MasterRoomControllerFx/dist/rooms.xml'); 
 		$functions = null;
 		$privilegesValues = null;
 		
 	    $user_id = (int)$_POST['user'];
         $room_id = (int)$_POST['room'];
 		
-		echo "odebrano : ". $user_id . "  " . $room_id."<br>";
+	if($develop == true)	echo "odebrano : ". $user_id . "  " . $room_id."<br>";
 			
 			
 			
@@ -31,15 +35,15 @@
 		if($room == null)
 			echo "Blad wczytywania pokoju ";
 		
-		echo $user->getName()."   w pokoju: ".$room->getName(). " ma uprawnienia: ".$privilege;
+		if($develop == true) echo $user->getName()."   w pokoju: ".$room->getName(). " ma uprawnienia: ".$privilege;
 		
 		 
 		 for($i=0;$i<count($room->getFunctions());$i++)
 		 {
 			$functions[$i] = Room::getFunctionById($room,$i);
-			echo "<br>".Room::getFunctionById($room,$i);
+			if($develop == true) echo "<br>".Room::getFunctionById($room,$i);
 			$privilegesValues[$i] = User::getPrivilegeValueByFunctionId($privilege,$i);
-			echo " : ".User::getPrivilegeValueByFunctionId($privilege,$i);
+			if($develop == true) echo " : ".User::getPrivilegeValueByFunctionId($privilege,$i);
 		 }
 	     
 		 
@@ -94,6 +98,7 @@ if(!isset($_SESSION['logged_in']))
 	
 	<script type="text/javascript" src="js/skrypt.js"></script>
     <link href="css/mobile.css" rel="stylesheet">
+
 	<link rel = "stylesheet" href = "fontello/fontello_set/css/fontello.css">
 	
 	
@@ -151,6 +156,7 @@ if(!isset($_SESSION['logged_in']))
                   <li role="presentation" ><a href="addUser.php">Add user</a></li>
                   <li role="presentation"><a href="privileges.php">Change user privileges</a></li>
                   <li role="presentation"><a href="addSensor.php">Add sensor</a></li>
+				  <li role="presentation"><a href="editUserData.php">Edit user data</a></li>
                 </ul>
               </li>
             </ul>
@@ -167,16 +173,19 @@ if(!isset($_SESSION['logged_in']))
       </nav>
  
 
-      <div class="page-header">
-        <h1>Welcome!</h1>
+      <div class="page-header col-xs-12 col-sm-12 col-md-12">
+        <h1>Change Privileges!</h1>
       </div>
-	  
-		<form action="changePrivileges.php" method="post">
+	  <!-- "col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-5 col-md-6 col-md-offset-5" -->
+		<form action="changePrivileges.php" method="post" class ="form" >
 	  		<?php
 			
 				echo '<input type="hidden" name="User_Id" value="'.$user_id.'" />';
 				echo '<input type="hidden" name="Room_Id" value="'.$room_id.'" />';
+				echo '<input type="hidden" name="privilege" value="'.$privilege.'" id ="privilege" />';
 				
+				echo '<input type="hidden" name="endPrivilege" value="'.$privilege.'" id ="endPrivilege" />';
+				/*
 				 for($i=0;$i<count($functions);$i++)
 				 {
 					 
@@ -199,10 +208,36 @@ if(!isset($_SESSION['logged_in']))
 					
 					echo '</br>';
 				 }
+				 */
+				 
+			
+
+				 
+				 echo '<table id=inputs>';
+				 for($i=0;$i<count($functions);$i++)
+				 {
+					 echo '<tr>';
+					 
+						$newName = str_replace("_"," ",$functions[$i]);
+						echo '<td>'.$newName.'</td>';
+						if($privilegesValues[$i] == 1)
+						{
+							$tmp = $functions[$i].'_e_'.$i.'_e_1';
+							echo '<td class=fontello_icon_green >';
+							echo '<i onclick="onclickHandler('.$tmp.')"; class="icon-ok-circled" id = '.$tmp.'></i></td>';
+						}
+						else
+						{
+							$tmp = $functions[$i].'_e_'.$i.'_e_0';
+							echo '<td class=fontello_icon ><i onclick="onclickHandler('.$tmp.')"; class="icon-ok-circled" id = '.$tmp.'></i></td>';
+						}
+					 echo '</tr>';
+				 }
+				 echo '</table>';
 	  
 			?>
 			
-			<button type="submit" class="btn btn-default" id = "button1">Click me!</button>
+			<button type="submit" class="btn btn-primary" id = "buttonSubmit">Submit !</button>
 			</form>
 			
 			

@@ -1,15 +1,17 @@
 
 
 <?php 
+session_start();
 	require('./User.php');
 	require('./Room.php');
 	
 	
 $userId = $_POST['User_Id'];
 $roomId = $_POST['Room_Id'];
-$users  = User::createUsersFromXml('XML/users.xml');
+$newPrivilege = $_POST['endPrivilege'];
+$users  = User::createUsersFromXml('/home/pi/Java/MasterRoomControllerFx/dist/users.xml');
 $user = User::getUserById($users,$userId);
-$rooms = Room::createRoomsFromXml('XML/rooms.xml');
+$rooms = Room::createRoomsFromXml('/home/pi/Java/MasterRoomControllerFx/dist/rooms.xml');
 $room = Room::getRoomById($rooms,$roomId);
 
 $privilege = User::getPrivilege($user->getPrivileges(),$roomId);
@@ -75,7 +77,17 @@ while($tmpRoomId!=0)
 
 
 
-echo $answer;
+echo $newPrivilege ;
 
+$user->setPrivilegeByRoomId($roomId,$newPrivilege );
+$t = $user->getPrivileges();
+
+//echo $t[0];
+
+
+User::createXMLFile($users);
+header('Location: privileges.php');
+$_SESSION['i_change'] = "Privileges change was successful!"; 
+   
 
 ?>

@@ -76,6 +76,7 @@ require('./User.php');
                   <li role="presentation" ><a href="addUser.php">Add user</a></li>
                   <li role="presentation" class="active"><a href="privileges.php">Change user privileges</a></li>
                   <li role="presentation"><a href="addSensor.php">Add sensor</a></li>
+				  <li role="presentation"><a href="editUserData.php">Edit user data</a></li>
                 </ul>
               </li>
             </ul>
@@ -95,8 +96,8 @@ require('./User.php');
 
 	  <?php
 		
-		$config = simplexml_load_file('XML/config.xml');
-		$usersXML = simplexml_load_file('XML/users.xml');
+		$config = simplexml_load_file('/home/pi/Java/MasterRoomControllerFx/dist/config.xml');
+		$usersXML = simplexml_load_file('/home/pi/Java/MasterRoomControllerFx/dist/users.xml');
 		$rooms = null;
 		$users = null;
 		
@@ -120,19 +121,27 @@ require('./User.php');
 					
 					
 				}	
-	$users  = User::createUsersFromXml('XML/users.xml');			
+	$users  = User::createUsersFromXml('/home/pi/Java/MasterRoomControllerFx/dist/users.xml');			
 	  ?>
 
-       <div class="page-header">
-	   
-        <h1>User privileges settings</h1>
-      </div>
+		<div class="page-header">
+			<h1>User privileges settings</h1>
+		</div>
       
-       <div class="main">
+       <div class="main form">
+	   
+	   <?php
+		    if(isset($_SESSION['i_change']))
+            {
+                echo '<div class="alert alert-success">'.$_SESSION['i_change'].'</div>';
+                unset($_SESSION['i_change']);
+            }
+	   ?>
+	   
 	 
 	  <form action="choose.php" method="post">	   
-          <p>User:</p>
-            <select name = "user">
+          <p>User</p>
+            <select name = "user" class="form-control form-control-lg selectPrivilegesForm ">
 			<?php 
 			
 				for($i=0;$i<count($users);$i++)
@@ -142,8 +151,8 @@ require('./User.php');
             </select>
           <br>
           <br>
-          <p>Room: </p>
-            <select name = "room">
+          <p>Room </p>
+            <select name = "room" class="form-control form-control-lg selectPrivilegesForm ">
 			<?php 
 			
 				for($i=0;$i<count($rooms);$i++)
@@ -153,7 +162,7 @@ require('./User.php');
           <br>
           <br>
 
-          <input type="submit" value="Choose">
+          <input class="btn btn-primary" type="submit" value="Choose">
 		  </form>
       </div>
 	  
