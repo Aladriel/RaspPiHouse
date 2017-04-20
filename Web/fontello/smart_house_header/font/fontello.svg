@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2017 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="home" unicode="&#xe800;" d="M0 340q-2 16 21 37l381 351q23 22 57 22t56-22l381-351q23-21 20-37t-30-15h-91v-305q0-32-23-55t-55-23h-517q-32 0-55 23t-23 55v305h-92q-27 0-30 15z" horiz-adv-x="916.5" />
+
+<glyph glyph-name="lamp" unicode="&#xe801;" d="M209-110l0 104 282 0 0-104q-70-42-142-40-70-2-140 40z m276 164l-270 0q0 72-36 140t-78 113-74 112-26 139q8 120 94 206t254 86q170 0 255-86t95-206q4-60-16-113t-52-96-65-85-57-96-24-114z m-378 496q-4-4 0-20t2-20 5-19 6-18 8-18 11-19 13-19 14-19 15-21 16-23q88-122 112-212l82 0q24 94 112 212 4 6 25 35t25 36 17 29 16 33 6 28 1 35q-16 196-244 196-226 0-242-196z" horiz-adv-x="700" />
+</font>
+</defs>
+</svg>
