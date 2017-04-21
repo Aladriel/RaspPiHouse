@@ -25,13 +25,21 @@ public abstract class CommsProtocol
     public static final byte TAG_MSG_SENSOR_TYPE = 0x03;
     public static final byte TAG_MSG_SENSOR_READING = 0x04;
     public static final byte TAG_MSG_REQUEST_TYPE = 0x05;
-    
     public static final byte TAG_MSG_STREAM_TYPE = 0x06;
     public static final byte TAG_MSG_STREAM_ACTION_TYPE = 0x07;
+    public static final byte TAG_MSG_SENDER_LOGIN = 0x08;
+    public static final byte TAG_MSG_SENDER_PASSWORD = 0x09;
+    public static final byte TAG_MSG_SENDER_PRIVILEGES = 0x0A;
+    public static final byte TAG_MSG_ROOM_NAME = 0x0B;
+    public static final byte TAG_MSG_LIGHT_VALUE = 0x0C;
+    public static final byte TAG_MSG_TO_DEVICE_ID = 0x0D;
     
     public static final byte MSG_TYPE_READING_DATA = 0x01;
     public static final byte MSG_TYPE_MASTER_REQUEST = 0x02;
     public static final byte MSG_TYPE_MASTER_STREAM = 0x03;
+    public static final byte MSG_TYPE_LOGIN_REQUEST = 0x04;
+    public static final byte MSG_TYPE_LOGIN_INFO = 0x05;
+    public static final byte MSG_TYPE_SET_LIGHT = 0x06;
     
     public static final byte STREAM_TYPE_VOICE = 0x01;
     public static final byte STREAM_TYPE_VIDEO = 0x02;
@@ -62,6 +70,28 @@ public abstract class CommsProtocol
         }
         
         return msg;
+    }
+    
+    public static int processLightStateMessage(byte[] message) {
+        int result = 0;
+        for(Tlv t : Tlv.parse(message))
+        {
+            switch(t.getTag())
+            {
+                case TAG_MSG_TYPE:
+                {
+                    break;
+                }
+                case TAG_MSG_TO_DEVICE_ID:
+                    break;
+                case TAG_MSG_LIGHT_VALUE:
+                    result = (int)t.getValue()[0];
+                    break;
+            }
+        }
+        
+        return result;
+        
     }
     
     public static byte[] createReadingsMessage(SensorReadings readings, byte deviceId)
@@ -95,6 +125,17 @@ public abstract class CommsProtocol
         
         return msg;
     }
+    
+    public static byte getMessageType(byte[] message) {
+        byte type = 0;
+        for(Tlv t : Tlv.parse(message))
+        {
+            type = t.getValue()[0];
+            break;
+        }
+        return type;
+    }
+   
     
     private static byte[] buildTLV(byte tag, int len, byte value)
     {

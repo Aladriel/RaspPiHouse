@@ -63,10 +63,10 @@ public abstract class CommsProtocol
                     break;
                 }
                 case TAG_MSG_TO_DEVICE_ID:
-                    result[0] = (int)t.getValue()[0];
+                    result[0] = (int)t.getValue()[3];
                     break;
                 case TAG_MSG_LIGHT_VALUE:
-                    result[1] = (int)t.getValue()[0];
+                    result[1] = (int)Float.parseFloat(new String(t.getValue()));
                     break;
             }
         }

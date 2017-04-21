@@ -13843,3 +13843,375 @@
   <thread>1</thread>
   <message>connect timed out</message>
 </record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-09T18:51:36</date>
+  <millis>1491756696867</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>send</method>
+  <thread>1</thread>
+  <message>Connection reset by peer: socket write error</message>
+</record>
+<record>
+  <date>2017-04-09T18:51:40</date>
+  <millis>1491756700904</millis>
+  <sequence>1</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-09T18:55:26</date>
+  <millis>1491756926582</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>send</method>
+  <thread>1</thread>
+  <message>Connection reset by peer: socket write error</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-09T18:58:19</date>
+  <millis>1491757099237</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>send</method>
+  <thread>1</thread>
+  <message>Connection reset by peer: socket write error</message>
+</record>
+<record>
+  <date>2017-04-09T18:58:23</date>
+  <millis>1491757103280</millis>
+  <sequence>1</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T18:59:11</date>
+  <millis>1491757151289</millis>
+  <sequence>2</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>send</method>
+  <thread>1</thread>
+  <message>Connection reset by peer: socket write error</message>
+</record>
+<record>
+  <date>2017-04-09T18:59:15</date>
+  <millis>1491757155302</millis>
+  <sequence>3</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T18:59:19</date>
+  <millis>1491757159307</millis>
+  <sequence>4</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T18:59:23</date>
+  <millis>1491757163310</millis>
+  <sequence>5</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T18:59:27</date>
+  <millis>1491757167315</millis>
+  <sequence>6</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T18:59:31</date>
+  <millis>1491757171316</millis>
+  <sequence>7</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T18:59:35</date>
+  <millis>1491757175320</millis>
+  <sequence>8</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T18:59:39</date>
+  <millis>1491757179336</millis>
+  <sequence>9</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T18:59:43</date>
+  <millis>1491757183347</millis>
+  <sequence>10</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T18:59:47</date>
+  <millis>1491757187360</millis>
+  <sequence>11</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T18:59:51</date>
+  <millis>1491757191376</millis>
+  <sequence>12</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T18:59:55</date>
+  <millis>1491757195390</millis>
+  <sequence>13</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T18:59:59</date>
+  <millis>1491757199404</millis>
+  <sequence>14</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:00:03</date>
+  <millis>1491757203418</millis>
+  <sequence>15</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:00:07</date>
+  <millis>1491757207424</millis>
+  <sequence>16</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:00:11</date>
+  <millis>1491757211439</millis>
+  <sequence>17</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:00:15</date>
+  <millis>1491757215454</millis>
+  <sequence>18</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:00:19</date>
+  <millis>1491757219468</millis>
+  <sequence>19</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:00:23</date>
+  <millis>1491757223483</millis>
+  <sequence>20</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:00:27</date>
+  <millis>1491757227496</millis>
+  <sequence>21</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:00:31</date>
+  <millis>1491757231499</millis>
+  <sequence>22</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:00:35</date>
+  <millis>1491757235512</millis>
+  <sequence>23</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:00:39</date>
+  <millis>1491757239515</millis>
+  <sequence>24</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:00:43</date>
+  <millis>1491757243518</millis>
+  <sequence>25</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:00:47</date>
+  <millis>1491757247530</millis>
+  <sequence>26</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:00:51</date>
+  <millis>1491757251533</millis>
+  <sequence>27</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:00:55</date>
+  <millis>1491757255542</millis>
+  <sequence>28</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-09T19:04:28</date>
+  <millis>1491757468564</millis>
+  <sequence>29</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>send</method>
+  <thread>1</thread>
+  <message>Connection reset by peer: socket write error</message>
+</record>

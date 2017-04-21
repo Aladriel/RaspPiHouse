@@ -8,10 +8,16 @@ package RoomController;
 import RoomController.Sensors.SensorsManager;
 import RoomController.Comms.CommsManager;
 import RoomController.Comms.CommsProtocol;
+import RoomController.Comms.IControlEvent;
 import RoomController.Comms.IStreamEvent;
 import RoomController.Sensors.SensorReading;
 import RoomController.Sensors.SensorReadings;
+import com.hopding.jrpicam.RPiCamera;
+import com.hopding.jrpicam.enums.Exposure;
+import com.hopding.jrpicam.exceptions.FailedToRunRaspistillException;
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import static java.lang.String.format;
@@ -21,6 +27,7 @@ import java.util.ArrayList;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -32,7 +39,7 @@ import javax.sound.sampled.SourceDataLine;
  *
  * @author eyrmin
  */
-public class RoomController implements IStreamEvent
+public class RoomController implements IStreamEvent, IControlEvent
 {
     final String LOGGER_NAME = "RCLogger";
     final String LOG_PATH = "log.log";
@@ -76,6 +83,7 @@ public class RoomController implements IStreamEvent
                 logger.setLevel(confManager.getLogLevel());
                 commsManager = new CommsManager(confManager.getMasterIp(), confManager.getMasterPort());
                 commsManager.addStreamEventListener(this);
+                commsManager.addControlEventListener(this);
                 commsManager.start();
                 
                 isl = new IncomingSoundListener();
@@ -127,7 +135,8 @@ public class RoomController implements IStreamEvent
 
     @Override
     public void streamReceived(byte[] message) {
-        if(message[0] == 0) {
+        byte[] streamInfo = CommsProtocol.processStream(message);
+        if(streamInfo[0] == 0) {
             if(!thread.isAlive())
                 thread.start();
         } else {
@@ -136,26 +145,29 @@ public class RoomController implements IStreamEvent
         }
  
     }
-    
-/*
 
-    private void processStream(InputStream inputStream) {
-        try {
-            // inputStream = inputStream.
-            byte[] data = new byte[3200];
-            inputStream.read(data);
-            ByteArrayInputStream bais = new ByteArrayInputStream(data);
-            AudioInputStream ais = new AudioInputStream(bais,format,data.length);
-            int bytesRead = 0;
-            if((bytesRead = ais.read(data)) != -1){
-                System.out.println("Writing to audio output.");
-                speaker.write(data,0,bytesRead);
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(RoomController.class.getName()).log(Level.SEVERE, null, ex);
+    @Override
+    public void controlMessageReceived(byte[] controlInfo) {
+        switch(CommsProtocol.getMessageType(controlInfo)){
+            case CommsProtocol.MSG_TYPE_SET_LIGHT:
+                int lightState = CommsProtocol.processLightStateMessage(controlInfo);
+                processLightState(lightState);
         }
     }
-    */
+
+    private void processLightState(int lightState) {
+        ProcessBuilder pb = new ProcessBuilder("python", "/home/pi/Projects/Python/set_light.py", String.valueOf(lightState));
+        try
+        {
+            Process p = pb.start();
+        }
+        catch (IOException ex)
+        {
+            logger.log(Level.WARNING, ex.getMessage());
+        }
+    }
+    
+
        class IncomingSoundListener implements Runnable{
            
             private SourceDataLine speaker;
@@ -207,12 +219,9 @@ public class RoomController implements IStreamEvent
                speaker.drain();
                speaker.close();
                System.out.println("Stopped listening to incoming audio.");
-            }catch(Exception e){
-                e.printStackTrace();
+            }catch(Exception ex){
+                Logger.getLogger(RoomController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
     }
-    
-    
 }

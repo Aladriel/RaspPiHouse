@@ -16,14 +16,15 @@ import java.util.logging.Level;
  *
  * @author eyrmin
  */
-public class CommsManager implements ICommsEvent, IStreamEvent
+public class CommsManager implements ICommsEvent
 {
     private Socket connection;
     private String masterIp;
     private int masterPort;
     private CommsTask backgroundTask;
     private Thread thread;
-    private StreamEventHandler handler;
+    private StreamEventHandler streamHandler;
+    private ControlMessageEventHandler controlHandler;
     
     public CommsManager(String masterIp, int masterPort)
     {
@@ -32,7 +33,8 @@ public class CommsManager implements ICommsEvent, IStreamEvent
         connection = new Socket();
         backgroundTask = null;
         thread = null;
-        handler = new StreamEventHandler();
+        streamHandler = new StreamEventHandler();
+        controlHandler = new ControlMessageEventHandler();
         
         try
         {
@@ -47,7 +49,11 @@ public class CommsManager implements ICommsEvent, IStreamEvent
     
     public void addStreamEventListener(IStreamEvent listener)
     {
-        handler.addStreamEventListener(listener);
+        streamHandler.addStreamEventListener(listener);
+    }
+    public void addControlEventListener(IControlEvent listener)
+    {
+        controlHandler.addControlEventListener(listener);
     }
     
     public void start()
@@ -133,12 +139,15 @@ public class CommsManager implements ICommsEvent, IStreamEvent
     }
 
     @Override
-    public void streamReceived(byte[] streamInfo) {
-        handler.triggerEvent(CommsProtocol.processStream(streamInfo));
-    }
-
-    @Override
     public void messageReceived(byte[] buffer) {
-        handler.triggerEvent(buffer);
+        switch(CommsProtocol.getMessageType(buffer)){
+            case CommsProtocol.MSG_TYPE_SET_LIGHT:
+                controlHandler.triggerEvent(buffer);
+                break;
+            case CommsProtocol.MSG_TYPE_MASTER_STREAM:
+                streamHandler.triggerEvent(buffer);
+                break;
+        }
+        
     }
 }

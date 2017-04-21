@@ -124,6 +124,7 @@ public class CommsTask implements Runnable
                         //byte[] buffer = new byte[connection.getInputStream().available()];
                         inputStream = connection.getInputStream();
                         byte[] buffer = new byte[inputStream.available()];
+                        connection.getInputStream().read(buffer);
                         handler.triggerEvent(buffer);
                     }
                 }
