@@ -6,6 +6,7 @@
 package MasterRoomControllerFx;
 
 import MasterRoomControllerFx.rooms.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -116,6 +117,12 @@ public class MainScreenController implements Initializable
     private boolean alertOn = false;
     private boolean csvFlag = false;
     private boolean[][] voiceCaptureArray = new boolean[ROOM_ROWS][ROOM_COLUMNS];
+    
+    private BufferedImage image;
+    
+    public BufferedImage getImage() {
+        return image;
+    }
     
     private RoomScreenFxController rsController;
     private javafx.stage.Stage roomScreen;

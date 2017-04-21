@@ -7,6 +7,7 @@ package MasterRoomControllerFx.rooms;
 
 import MasterRoomControllerFx.MainScreenController;
 import MasterRoomControllerFx.rooms.charts.RoomChartController;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +16,7 @@ import java.util.logging.Logger;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -31,6 +33,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
+import javax.imageio.ImageIO;
 
 /**
  * FXML Controller class
@@ -54,6 +57,8 @@ public class RoomScreenFxController implements Initializable {
     @FXML private Label lblRoomRoom;
     @FXML private Label backIcon;
     @FXML private Label speakerIcon;
+    
+    @FXML private ImageView videoStreamIV;
 
     /**
      * Initializes the controller class.
@@ -75,6 +80,7 @@ public class RoomScreenFxController implements Initializable {
                 setLight();               
                 setMotion();
                 setTemp();
+                setImage(screenController.getImage());
                 backIcon.toFront();
                 pause.setDuration(Duration.seconds(5));
                 pause.play();
@@ -125,6 +131,11 @@ public class RoomScreenFxController implements Initializable {
     
     public void setController(MainScreenController main) {
         screenController = main;
+    }
+    
+    public void setImage(BufferedImage image) {
+        Image img = SwingFXUtils.toFXImage(image, null);
+        videoStreamIV.setImage(img);
     }
     
     private void setSpeakerImage()

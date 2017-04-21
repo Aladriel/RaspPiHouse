@@ -15,6 +15,11 @@ import RoomController.Comms.UserLoginInfo;
 import RoomController.Sensors.SensorReading;
 import RoomController.Sensors.SensorReadings;
 import RoomController.Sensors.SensorType;
+import com.hopding.jrpicam.RPiCamera;
+import com.hopding.jrpicam.enums.Exposure;
+import com.hopding.jrpicam.exceptions.FailedToRunRaspistillException;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -22,6 +27,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -30,6 +36,7 @@ import javafx.application.Platform;
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.*;
+import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
@@ -137,6 +144,7 @@ public class RoomController implements IReadingsEvent, ILoginEvent
                     Thread voiceStreamThread = new Thread(voiceStream);
                     voiceStreamThread.start();
                 }
+                
                 success = true;
                 
             }
@@ -587,4 +595,5 @@ public class RoomController implements IReadingsEvent, ILoginEvent
             }
         }
     }
+    
 }

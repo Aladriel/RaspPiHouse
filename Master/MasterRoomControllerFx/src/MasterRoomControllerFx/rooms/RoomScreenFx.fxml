@@ -3,6 +3,7 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -73,7 +74,8 @@
                   <Insets left="30.0" />
                </padding>
             </Label>
-            <Label fx:id="speakerIcon" alignment="CENTER" prefHeight="64.0" prefWidth="64.0" GridPane.columnIndex="1" GridPane.rowIndex="5" onMouseClicked="#voiceActivationEvent"  />
+            <Label fx:id="speakerIcon" alignment="CENTER" onMouseClicked="#voiceActivationEvent" prefHeight="64.0" prefWidth="64.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ImageView fx:id="videoStreamIV" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>

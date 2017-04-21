@@ -108,6 +108,10 @@ public class CommsTask implements Runnable, ICommsEvent
                 userInfo.setConnection(connection);
                 loginHandler.triggerEvent(userInfo);
                 break;
+            case CommsProtocol.MSG_TYPE_SET_LIGHT:
+                int[] lightInfo = CommsProtocol.processLightStateMessage(buffer);
+                send(buffer, lightInfo[0], buffer.length);
+                //display change in UI + send to other mobiles new state
         }
 
     }
