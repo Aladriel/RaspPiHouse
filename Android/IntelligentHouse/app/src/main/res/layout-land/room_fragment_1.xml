@@ -11,6 +11,15 @@
     tools:context="rasppi.intelligenthouse.controller.FragmentController">
 
 
+    <ImageButton
+        android:id="@+id/bulbButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/bulboff"
+        android:layout_alignTop="@+id/speakerButton"
+        android:layout_alignEnd="@+id/motionIcon" />
+
     <ImageView
         android:id="@+id/tempIcon"
         android:layout_width="wrap_content"
@@ -60,12 +69,10 @@
         android:id="@+id/speakerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="93dp"
-        android:layout_toEndOf="@+id/tempIcon"
         android:background="@android:color/transparent"
-        app:srcCompat="@drawable/speakeroff" />
+        app:srcCompat="@drawable/speakeroff"
+        android:layout_alignTop="@+id/chartButton"
+        android:layout_toEndOf="@+id/humValue" />
 
     <ImageButton
         android:id="@+id/chartButton"

@@ -15,6 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.io.IOException;
+
 import rasppi.intelligenthouse.Comms.CommsManager;
 import rasppi.intelligenthouse.Comms.CommsProtocol;
 import rasppi.intelligenthouse.Comms.IReadingsEvent;
@@ -77,17 +79,6 @@ public class MainActivity extends AppCompatActivity implements FragmentControlle
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-
-            }
-        });
 
 
 
@@ -172,14 +163,19 @@ public class MainActivity extends AppCompatActivity implements FragmentControlle
 
 
     @Override
-    public void myAction() {
-
+    public void bulbSetAction(float value, int deviceId) {
+        byte[] message = CommsProtocol.createLightStateMessage(value,deviceId);
+        try {
+            commsManager.sendToMaster(message);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void ReadingsReceived(byte[] readings) {
         SensorReadings sReadings = CommsProtocol.processReadingMessage(readings);
-        processReadings(sReadings,sReadings.getDeviceId());
+        processReadings(sReadings,sReadings.getDeviceId()-1);
     }
 
     private void processReadings(SensorReadings readings, int deviceId)
@@ -327,9 +323,7 @@ public class MainActivity extends AppCompatActivity implements FragmentControlle
         }
 
         @Override
-        public int getCount() {
-            return fragmentAmount;
-        }
+        public int getCount() { return fragmentAmount; }
 
         @Override
         public CharSequence getPageTitle(int position) {

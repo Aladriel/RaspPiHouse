@@ -6,8 +6,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.view.View.OnClickListener;
 
 import rasppi.intelligenthouse.R;
 
@@ -19,7 +22,7 @@ import rasppi.intelligenthouse.R;
  * Use the {@link FragmentController#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentController extends Fragment {
+public class FragmentController extends Fragment implements OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "roomNumber";
@@ -37,12 +40,16 @@ public class FragmentController extends Fragment {
     private float lightState;
     private float fireState;
     private float motionState;
+    private float bulbState;
 
     TextView tempValue;
     TextView humValue;
     ImageView lightIcon;
     ImageView fireIcon;
     ImageView motionIcon;
+    ImageButton bulbButton;
+    ImageButton chartButton;
+    ImageButton speakerButton;
 
     View rootView;
 
@@ -82,6 +89,8 @@ public class FragmentController extends Fragment {
             lightState = getArguments().getFloat(ARG_PARAM4);
             fireState = getArguments().getFloat(ARG_PARAM5);
             motionState = getArguments().getFloat(ARG_PARAM6);
+            bulbState = 0;
+
         }
     }
 
@@ -97,10 +106,11 @@ public class FragmentController extends Fragment {
         }
 
         // Inflate the layout for this fragment
+        /*
         switch (roomNumber) {
             case 0: rootView = inflater.inflate(R.layout.room_fragment_1, container, false);
                 break;
-            case 1: rootView = inflater.inflate(R.layout.room_fragment_2, container, false);
+            case 1: rootView = inflater.inflate(R.layout.room_fragment_1, container, false);
                 break;
             case 2: rootView = inflater.inflate(R.layout.room_fragment_3, container, false);
                 break;
@@ -112,7 +122,11 @@ public class FragmentController extends Fragment {
                 break;
             default: rootView = inflater.inflate(R.layout.room_fragment_1, container, false);
         }
+        */
+        rootView = inflater.inflate(R.layout.room_fragment_1, container, false);
         setUIVievs();
+        bulbButton = (ImageButton) rootView.findViewById(R.id.bulbButton);
+        bulbButton.setOnClickListener(this);
         return rootView;
     }
 
@@ -135,6 +149,9 @@ public class FragmentController extends Fragment {
         if(motionState == 1) motionIcon.setVisibility(View.VISIBLE);
         else motionIcon.setVisibility(View.INVISIBLE);
     }
+
+
+
 /*
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -215,12 +232,29 @@ public class FragmentController extends Fragment {
     }
 
 
-    public void myAction() {
-
+    public float bulbSetAction(View view) {
+        ImageButton button = (ImageButton) view.findViewById(R.id.bulbButton);
+        if (bulbState == 1) {
+            button.setImageResource(R.drawable.bulboff);
+            mListener.bulbSetAction(bulbState,roomNumber);
+            return bulbState = 0;
+        }
+        else {
+            button.setImageResource(R.drawable.bulbon);
+            mListener.bulbSetAction(bulbState,roomNumber);
+            return bulbState = 1;
+        }
     }
+
+
 
     public int getRoomNumber(){
         return  roomNumber;
+    }
+
+    @Override
+    public void onClick(View view) {
+        bulbSetAction(view);
     }
 
     /**
@@ -235,7 +269,7 @@ public class FragmentController extends Fragment {
 */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void myAction();
+        void bulbSetAction(float value, int deviceId);
     }
 
 }

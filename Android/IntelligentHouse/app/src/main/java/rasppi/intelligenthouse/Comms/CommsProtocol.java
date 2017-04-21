@@ -33,6 +33,8 @@ public abstract class CommsProtocol
     public static final byte TAG_MSG_SENDER_PASSWORD = 0x09;
     public static final byte TAG_MSG_SENDER_PRIVILEGES = 0x0A;
     public static final byte TAG_MSG_ROOM_NAME = 0x0B;
+    public static final byte TAG_MSG_LIGHT_VALUE = 0x0C;
+    public static final byte TAG_MSG_TO_DEVICE_ID = 0x0D;
 
 
 
@@ -45,6 +47,8 @@ public abstract class CommsProtocol
     public static final byte MSG_TYPE_MASTER_STREAM = 0x03;
     public static final byte MSG_TYPE_LOGIN_REQUEST = 0x04;
     public static final byte MSG_TYPE_LOGIN_INFO = 0x05;
+    public static final byte MSG_TYPE_SET_LIGHT = 0x06;
+
 
     
     public static final byte STREAM_TYPE_VOICE = 0x01;
@@ -109,6 +113,24 @@ public abstract class CommsProtocol
         user.setRoomNames(roomNames);
 
         return user;
+    }
+
+    public static byte[] createLightStateMessage(float value, int deviceId){
+        byte[] msg = null;
+        ByteArrayOutputStream s = new ByteArrayOutputStream();
+        try {
+            s.write(buildTLV(TAG_MSG_TYPE, 1, MSG_TYPE_SET_LIGHT));
+            byte[] id = ByteBuffer.allocate(4).putInt(deviceId).array();
+            s.write(buildTLV(TAG_MSG_TO_DEVICE_ID, id.length, id));
+            byte[] val = Float.toString(value).getBytes(StandardCharsets.UTF_8);
+            s.write(buildTLV(TAG_MSG_LIGHT_VALUE, val.length, val));
+
+        } catch (IOException e){
+            e.printStackTrace();
+            return null;
+        }
+        msg = s.toByteArray();
+        return  msg;
     }
 
     public static SensorReadings processReadingMessage(byte[] message)
