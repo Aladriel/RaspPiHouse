@@ -57,8 +57,6 @@ public class RoomScreenFxController implements Initializable {
     @FXML private Label lblRoomRoom;
     @FXML private Label backIcon;
     @FXML private Label speakerIcon;
-    
-    @FXML private ImageView videoStreamIV;
 
     /**
      * Initializes the controller class.
@@ -80,7 +78,6 @@ public class RoomScreenFxController implements Initializable {
                 setLight();               
                 setMotion();
                 setTemp();
-                setImage(screenController.getImage());
                 backIcon.toFront();
                 pause.setDuration(Duration.seconds(5));
                 pause.play();
@@ -133,10 +130,6 @@ public class RoomScreenFxController implements Initializable {
         screenController = main;
     }
     
-    public void setImage(BufferedImage image) {
-        Image img = SwingFXUtils.toFXImage(image, null);
-        videoStreamIV.setImage(img);
-    }
     
     private void setSpeakerImage()
     {  
