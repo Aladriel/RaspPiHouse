@@ -14215,3 +14215,494 @@
   <thread>1</thread>
   <message>Connection reset by peer: socket write error</message>
 </record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-23T11:36:35</date>
+  <millis>1492940195981</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.RoomController</class>
+  <method>processLightState</method>
+  <thread>14</thread>
+  <message>Cannot run program "python": CreateProcess error=2, Nie można odnaleźć określonego pliku</message>
+</record>
+<record>
+  <date>2017-04-23T11:38:59</date>
+  <millis>1492940339070</millis>
+  <sequence>1</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.RoomController</class>
+  <method>processLightState</method>
+  <thread>14</thread>
+  <message>Cannot run program "python": CreateProcess error=2, Nie można odnaleźć określonego pliku</message>
+</record>
+<record>
+  <date>2017-04-23T11:39:10</date>
+  <millis>1492940350011</millis>
+  <sequence>2</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.RoomController</class>
+  <method>processLightState</method>
+  <thread>14</thread>
+  <message>Cannot run program "python": CreateProcess error=2, Nie można odnaleźć określonego pliku</message>
+</record>
+<record>
+  <date>2017-04-23T11:39:20</date>
+  <millis>1492940360526</millis>
+  <sequence>3</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.RoomController</class>
+  <method>processLightState</method>
+  <thread>14</thread>
+  <message>Cannot run program "python": CreateProcess error=2, Nie można odnaleźć określonego pliku</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-23T11:48:56</date>
+  <millis>1492940936337</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.RoomController</class>
+  <method>processLightState</method>
+  <thread>14</thread>
+  <message>Cannot run program "python": CreateProcess error=2, Nie można odnaleźć określonego pliku</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-23T12:49:29</date>
+  <millis>1492944569112</millis>
+  <sequence>0</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>send</method>
+  <thread>1</thread>
+  <message>Software caused connection abort: socket write error</message>
+</record>
+<record>
+  <date>2017-04-23T12:49:33</date>
+  <millis>1492944573234</millis>
+  <sequence>1</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-23T12:51:57</date>
+  <millis>1492944717765</millis>
+  <sequence>2</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>send</method>
+  <thread>1</thread>
+  <message>Software caused connection abort: socket write error</message>
+</record>
+<record>
+  <date>2017-04-23T12:52:01</date>
+  <millis>1492944721784</millis>
+  <sequence>3</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<record>
+  <date>2017-04-23T12:52:05</date>
+  <millis>1492944725803</millis>
+  <sequence>4</sequence>
+  <logger>RCLogger</logger>
+  <level>SEVERE</level>
+  <class>RoomController.Comms.CommsTask</class>
+  <method>connectToMaster</method>
+  <thread>1</thread>
+  <message>Connection refused: connect</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-23T13:41:36</date>
+  <millis>1492947696785</millis>
+  <sequence>1</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:41:39</date>
+  <millis>1492947699941</millis>
+  <sequence>3</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:41:42</date>
+  <millis>1492947702957</millis>
+  <sequence>5</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:41:45</date>
+  <millis>1492947705957</millis>
+  <sequence>7</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:41:48</date>
+  <millis>1492947708975</millis>
+  <sequence>9</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:41:51</date>
+  <millis>1492947711976</millis>
+  <sequence>11</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:41:54</date>
+  <millis>1492947714976</millis>
+  <sequence>13</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:41:57</date>
+  <millis>1492947717976</millis>
+  <sequence>15</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:42:00</date>
+  <millis>1492947720976</millis>
+  <sequence>17</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:42:03</date>
+  <millis>1492947723976</millis>
+  <sequence>19</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:42:06</date>
+  <millis>1492947726976</millis>
+  <sequence>21</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:42:09</date>
+  <millis>1492947729992</millis>
+  <sequence>23</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:42:12</date>
+  <millis>1492947732992</millis>
+  <sequence>25</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:42:15</date>
+  <millis>1492947735992</millis>
+  <sequence>27</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:42:19</date>
+  <millis>1492947739007</millis>
+  <sequence>29</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:42:22</date>
+  <millis>1492947742007</millis>
+  <sequence>31</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:42:25</date>
+  <millis>1492947745007</millis>
+  <sequence>33</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:42:28</date>
+  <millis>1492947748007</millis>
+  <sequence>35</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-23T13:46:08</date>
+  <millis>1492947968063</millis>
+  <sequence>1</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:46:11</date>
+  <millis>1492947971079</millis>
+  <sequence>3</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:46:14</date>
+  <millis>1492947974079</millis>
+  <sequence>5</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:46:17</date>
+  <millis>1492947977079</millis>
+  <sequence>7</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:46:20</date>
+  <millis>1492947980090</millis>
+  <sequence>9</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:46:23</date>
+  <millis>1492947983090</millis>
+  <sequence>11</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-23T13:48:32</date>
+  <millis>1492948112433</millis>
+  <sequence>1</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:48:35</date>
+  <millis>1492948115433</millis>
+  <sequence>3</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:48:38</date>
+  <millis>1492948118433</millis>
+  <sequence>5</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:48:41</date>
+  <millis>1492948121433</millis>
+  <sequence>7</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:48:44</date>
+  <millis>1492948124434</millis>
+  <sequence>9</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:48:47</date>
+  <millis>1492948127434</millis>
+  <sequence>11</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:48:50</date>
+  <millis>1492948130434</millis>
+  <sequence>13</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:48:53</date>
+  <millis>1492948133434</millis>
+  <sequence>15</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>
+<record>
+  <date>2017-04-23T13:48:56</date>
+  <millis>1492948136434</millis>
+  <sequence>17</sequence>
+  <logger>RCLogger</logger>
+  <level>WARNING</level>
+  <class>RoomController.Sensors.SensorsManager</class>
+  <method>getReadings</method>
+  <thread>1</thread>
+  <message>Sensor RoomController.Sensors.LightSensor@3feba861 is not available</message>
+</record>

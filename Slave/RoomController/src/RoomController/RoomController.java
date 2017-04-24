@@ -24,6 +24,7 @@ import static java.lang.String.format;
 import static java.lang.String.format;
 import static java.lang.String.format;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -150,15 +151,32 @@ public class RoomController implements IStreamEvent, IControlEvent
     public void controlMessageReceived(byte[] controlInfo) {
         switch(CommsProtocol.getMessageType(controlInfo)){
             case CommsProtocol.MSG_TYPE_SET_LIGHT:
-                int lightState = CommsProtocol.processLightStateMessage(controlInfo);
+                String lightState = CommsProtocol.processLightStateMessage(controlInfo);
                 processLightState(lightState);
         }
     }
 
-    private void processLightState(int lightState) {
-        ProcessBuilder pb = new ProcessBuilder("python", "/home/pi/Projects/Python/set_light.py", String.valueOf(lightState));
+    private void processLightState(String lightState) {
+        ProcessBuilder pb ;
+        
+        if(lightState.equals("0.0"))
+         {
+                pb = new ProcessBuilder("python", "/home/pi/Projects/Python/set_on_light.py", lightState);
+         }  
+        else
+        {
+                pb = new ProcessBuilder("python", "/home/pi/Projects/Python/set_off_light.py", lightState);
+        }/*   ProcessBuilder pb = new ProcessBuilder();      
+        List<String> command = new ArrayList<>();
+		command.add("gpio");
+		command.add("-g");
+		command.add("write");
+		command.add("18");
+                command.add("0");
+            pb = new ProcessBuilder(command);*/
         try
         {
+           // System.out.println(lightState);             
             Process p = pb.start();
         }
         catch (IOException ex)

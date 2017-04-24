@@ -1,10 +1,6 @@
 <Config>
-    <Device type="slave" masterIp="192.168.1.18" id="4" log_level="ALL"/>
+    <Device type="slave" masterIp="192.168.43.86" id="3" log_level="ALL"/>
     <Sensors>
-		<Sensor type="Thermo" pin="22"/>
-        <Sensor type="Humidity" pin="22"/>
         <Sensor type="Light" pin="17"/>
-		<Sensor type="Smoke" pin="4"/>
-		<Sensor type="Motion" pin="27"/>
     </Sensors>
 </Config>

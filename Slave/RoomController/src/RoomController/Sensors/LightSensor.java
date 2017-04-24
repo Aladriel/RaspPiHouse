@@ -33,7 +33,6 @@ public class LightSensor extends Sensor
         {
             Process p = pb.start();
             BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
-	    //System.out.println("value is : " + in.readLine());
             if(in.readLine().charAt(0) == '0')
                 v = 1;
             else
@@ -41,10 +40,9 @@ public class LightSensor extends Sensor
         }
         catch (IOException ex)
         {
-            Logger.getLogger(LightSensor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SmokeSensor.class.getName()).log(Level.SEVERE, null, ex);
             throw new SensorNotAvailableException();
         }
-        
         return v;
     }
     

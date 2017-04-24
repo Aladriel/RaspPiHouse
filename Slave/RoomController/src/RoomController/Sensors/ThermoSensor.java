@@ -34,12 +34,13 @@ public class ThermoSensor extends Sensor
     public float getReading() throws SensorNotAvailableException
     {
         float value = 0;
-        ProcessBuilder pb = new ProcessBuilder("python", "/home/pi/Projects/Python/get_temp_from_dht22.py", "22");
+        ProcessBuilder pb = new ProcessBuilder("python", "/home/pi/Projects/Python/get_temp.py");
         try
         {
             Process p = pb.start();
             BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
-	    //System.out.println("value is : " + in.readLine());
+           // String tmpp = in.readLine();
+	   // System.out.println("value is : " + tmpp);
             value = Float.parseFloat(in.readLine());
         }
         catch (IOException ex)

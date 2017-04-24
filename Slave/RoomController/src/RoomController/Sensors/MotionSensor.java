@@ -28,7 +28,7 @@ public class MotionSensor extends Sensor
     public float getReading() throws  SensorNotAvailableException
     {
         float v = 0;
-        ProcessBuilder pb = new ProcessBuilder("python", "/home/pi/Projects/Python/get_humidity_from_dht22.py", "22");
+        ProcessBuilder pb = new ProcessBuilder("python", "/home/pi/Projects/Python/get_motion.py", "27");
         try
         {
             Process p = pb.start();

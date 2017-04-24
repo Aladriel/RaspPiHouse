@@ -72,8 +72,8 @@ public abstract class CommsProtocol
         return msg;
     }
     
-    public static int processLightStateMessage(byte[] message) {
-        int result = 0;
+    public static String processLightStateMessage(byte[] message) {
+        String result = "0";
         for(Tlv t : Tlv.parse(message))
         {
             switch(t.getTag())
@@ -85,7 +85,7 @@ public abstract class CommsProtocol
                 case TAG_MSG_TO_DEVICE_ID:
                     break;
                 case TAG_MSG_LIGHT_VALUE:
-                    result = (int)t.getValue()[0];
+                    result = new String(t.getValue());            
                     break;
             }
         }
