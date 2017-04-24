@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements FragmentControlle
 
     @Override
     public void bulbSetAction(float value, int deviceId) {
-        byte[] message = CommsProtocol.createLightStateMessage(value,deviceId);
+        byte[] message = CommsProtocol.createLightStateMessage(value,deviceId+1);
         try {
             commsManager.sendToMaster(message);
         } catch (IOException e) {

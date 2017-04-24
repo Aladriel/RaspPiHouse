@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         instance=this;
-        commsManager = new CommsManager("192.168.1.18 ", 12001);
+        commsManager = new CommsManager("192.168.43.86", 12001);
         commsManager.start();
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
