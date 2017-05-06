@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -52,6 +53,11 @@ public class MainActivity extends AppCompatActivity implements FragmentControlle
     private float lightArray[] = new float[fragmentAmount];
     private float fireArray[] = new float[fragmentAmount];
     private float motionArray[] = new float[fragmentAmount];
+
+    public UserLoginInfo getUserInfo() {
+        return userInfo;
+    }
+
     UserLoginInfo userInfo;
     CommsManager commsManager;
 
@@ -164,7 +170,26 @@ public class MainActivity extends AppCompatActivity implements FragmentControlle
 
     @Override
     public void bulbSetAction(float value, int deviceId) {
-        byte[] message = CommsProtocol.createLightStateMessage(value,deviceId+1);
+        byte[] message = CommsProtocol.createLightStateMessage(value,deviceId);
+        try {
+            commsManager.sendToMaster(message);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void blindSetOnAction(float value, int deviceId) {
+        byte[] message = CommsProtocol.createBlindStateMessage(value,deviceId);
+        try {
+            commsManager.sendToMaster(message);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @Override
+    public void blindSetOffAction(float value, int deviceId) {
+        byte[] message = CommsProtocol.createBlindStateMessage(value,deviceId);
         try {
             commsManager.sendToMaster(message);
         } catch (IOException e) {

@@ -11,7 +11,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
+import rasppi.intelligenthouse.MainActivity;
 import rasppi.intelligenthouse.R;
 
 /**
@@ -22,7 +24,7 @@ import rasppi.intelligenthouse.R;
  * Use the {@link FragmentController#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentController extends Fragment implements OnClickListener {
+public class FragmentController extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "roomNumber";
@@ -48,10 +50,11 @@ public class FragmentController extends Fragment implements OnClickListener {
     ImageView fireIcon;
     ImageView motionIcon;
     ImageButton bulbButton;
-    ImageButton chartButton;
-    ImageButton speakerButton;
+    ImageButton blindOnButton;
+    ImageButton blindOffButton;
 
     View rootView;
+    private MainActivity mainActivity;
 
     private OnFragmentInteractionListener mListener;
 
@@ -123,10 +126,30 @@ public class FragmentController extends Fragment implements OnClickListener {
             default: rootView = inflater.inflate(R.layout.room_fragment_1, container, false);
         }
         */
+        mainActivity = (MainActivity) getActivity();
         rootView = inflater.inflate(R.layout.room_fragment_1, container, false);
         setUIVievs();
         bulbButton = (ImageButton) rootView.findViewById(R.id.bulbButton);
-        bulbButton.setOnClickListener(this);
+        bulbButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bulbSetAction(view);
+            }
+        });
+        blindOffButton = (ImageButton) rootView.findViewById(R.id.blindOffButton);
+        blindOffButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                blindSetOffAction(view);
+            }
+        });
+        blindOnButton = (ImageButton) rootView.findViewById(R.id.blindOnButton);
+        blindOnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                blindSetOnAction(view);
+            }
+        });
         return rootView;
     }
 
@@ -233,16 +256,54 @@ public class FragmentController extends Fragment implements OnClickListener {
 
 
     public float bulbSetAction(View view) {
-        ImageButton button = (ImageButton) view.findViewById(R.id.bulbButton);
-        if (bulbState == 1) {
-            button.setImageResource(R.drawable.bulboff);
-            mListener.bulbSetAction(bulbState,roomNumber);
-            return bulbState = 0;
+        if(mainActivity.getUserInfo().getPrivileges()[0] == 1) {
+            ImageButton button = (ImageButton) view.findViewById(R.id.bulbButton);
+            if (bulbState == 1) {
+                button.setImageResource(R.drawable.bulboff);
+                bulbState = 0;
+                mListener.bulbSetAction(bulbState, roomNumber + 1);
+                return bulbState;
+            } else {
+                button.setImageResource(R.drawable.bulbon);
+                bulbState = 1;
+                mListener.bulbSetAction(bulbState, roomNumber + 1);
+                return bulbState;
+            }
+        } else {
+            CharSequence text;
+            text = "You have too low privileges to do it!";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(mainActivity, text, duration);
+            toast.show();
+            return 0;
         }
-        else {
-            button.setImageResource(R.drawable.bulbon);
-            mListener.bulbSetAction(bulbState,roomNumber);
-            return bulbState = 1;
+    }
+
+    public float blindSetOnAction(View view) {
+        if(mainActivity.getUserInfo().getPrivileges()[0] == 1) {
+                mListener.blindSetOnAction(1, roomNumber + 1);
+                return bulbState;
+        } else {
+            CharSequence text;
+            text = "You have too low privileges to do it!";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(mainActivity, text, duration);
+            toast.show();
+            return 0;
+        }
+    }
+
+    public float blindSetOffAction(View view) {
+        if(mainActivity.getUserInfo().getPrivileges()[0] == 1) {
+            mListener.blindSetOffAction(0, roomNumber + 1);
+            return bulbState;
+        } else {
+            CharSequence text;
+            text = "You have too low privileges to do it!";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(mainActivity, text, duration);
+            toast.show();
+            return 0;
         }
     }
 
@@ -252,10 +313,6 @@ public class FragmentController extends Fragment implements OnClickListener {
         return  roomNumber;
     }
 
-    @Override
-    public void onClick(View view) {
-        bulbSetAction(view);
-    }
 
     /**
      * This interface must be implemented by activities that contain this
@@ -270,6 +327,8 @@ public class FragmentController extends Fragment implements OnClickListener {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void bulbSetAction(float value, int deviceId);
+        void blindSetOnAction(float value, int deviceId);
+        void blindSetOffAction(float value, int deviceId);
     }
 
 }

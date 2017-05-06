@@ -63,24 +63,25 @@
         app:srcCompat="@drawable/motion" />
 
     <ImageButton
-        android:id="@+id/speakerButton"
+        android:id="@+id/blindOnButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/blindOffButton"
+        android:layout_toEndOf="@+id/humValue"
         android:background="@android:color/transparent"
-        app:srcCompat="@drawable/speakeroff"
-        android:layout_alignTop="@+id/chartButton"
-        android:layout_toEndOf="@+id/humValue" />
+        android:onClick="blindSetOnAction"
+        app:srcCompat="@drawable/blindson" />
 
     <ImageButton
-        android:id="@+id/chartButton"
+        android:id="@+id/blindOffButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/humIcon"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginBottom="19dp"
         android:background="@android:color/transparent"
-        app:srcCompat="@drawable/chart" />
+        android:onClick="onClickBlindOff"
+        app:srcCompat="@drawable/blindsoff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/humIcon" />
 
     <TextView
         android:id="@+id/tempValue"
@@ -107,8 +108,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/motionIcon"
-        android:layout_alignTop="@+id/chartButton"
+        android:layout_alignTop="@+id/blindOffButton"
         android:background="@android:color/transparent"
+        android:onClick="onClickBulb"
         app:srcCompat="@drawable/bulboff" />
 
 </RelativeLayout>
