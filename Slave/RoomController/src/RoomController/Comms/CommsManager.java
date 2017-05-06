@@ -144,6 +144,9 @@ public class CommsManager implements ICommsEvent
             case CommsProtocol.MSG_TYPE_SET_LIGHT:
                 controlHandler.triggerEvent(buffer);
                 break;
+            case CommsProtocol.MSG_TYPE_SET_BLIND:
+                controlHandler.triggerEvent(buffer);
+                break;
             case CommsProtocol.MSG_TYPE_MASTER_STREAM:
                 streamHandler.triggerEvent(buffer);
                 break;

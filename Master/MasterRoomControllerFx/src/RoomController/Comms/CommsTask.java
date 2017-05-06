@@ -112,6 +112,10 @@ public class CommsTask implements Runnable, ICommsEvent
                 int[] lightInfo = CommsProtocol.processLightStateMessage(buffer);
                 send(buffer, lightInfo[0], buffer.length);
                 //display change in UI + send to other mobiles new state
+            case CommsProtocol.MSG_TYPE_SET_BLIND:
+                int[] blindInfo = CommsProtocol.processBlindStateMessage(buffer);
+                send(buffer, blindInfo[0], buffer.length);
+                //display change in UI + send to other mobiles new state                
         }
 
     }

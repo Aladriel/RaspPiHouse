@@ -153,6 +153,9 @@ public class RoomController implements IStreamEvent, IControlEvent
             case CommsProtocol.MSG_TYPE_SET_LIGHT:
                 String lightState = CommsProtocol.processLightStateMessage(controlInfo);
                 processLightState(lightState);
+            case CommsProtocol.MSG_TYPE_SET_BLIND:
+                String blindState = CommsProtocol.processLightStateMessage(controlInfo);
+                processBlindState(blindState);
         }
     }
 
@@ -174,6 +177,28 @@ public class RoomController implements IStreamEvent, IControlEvent
 		command.add("18");
                 command.add("0");
             pb = new ProcessBuilder(command);*/
+        try
+        {
+           // System.out.println(lightState);             
+            Process p = pb.start();
+        }
+        catch (IOException ex)
+        {
+            logger.log(Level.WARNING, ex.getMessage());
+        }
+    }
+    
+    private void processBlindState(String lightState) {       
+        ProcessBuilder pb ;
+        
+        if(lightState.equals("0.0"))
+         {
+                pb = new ProcessBuilder("python", "/home/pi/Projects/Python/set_on_blind.py", lightState);
+         }  
+        else
+        {
+                pb = new ProcessBuilder("python", "/home/pi/Projects/Python/set_off_blind.py", lightState);
+        }
         try
         {
            // System.out.println(lightState);             

@@ -36,6 +36,7 @@ public abstract class CommsProtocol
     public static final byte TAG_MSG_ROOM_NAME = 0x0B;
     public static final byte TAG_MSG_LIGHT_VALUE = 0x0C;
     public static final byte TAG_MSG_TO_DEVICE_ID = 0x0D;
+    public static final byte TAG_MSG_BLIND_VALUE = 0x0E;
     
     
     public static final byte MSG_TYPE_READING_DATA = 0x01;
@@ -44,6 +45,8 @@ public abstract class CommsProtocol
     public static final byte MSG_TYPE_LOGIN_REQUEST = 0x04;
     public static final byte MSG_TYPE_LOGIN_INFO = 0x05;
     public static final byte MSG_TYPE_SET_LIGHT = 0x06;
+    public static final byte MSG_TYPE_SET_BLIND = 0x07;
+    
     
     public static final byte STREAM_TYPE_VOICE = 0x00;
     public static final byte STREAM_TYPE_VIDEO = 0x01;
@@ -66,6 +69,29 @@ public abstract class CommsProtocol
                     result[0] = (int)t.getValue()[3];
                     break;
                 case TAG_MSG_LIGHT_VALUE:
+                    result[1] = (int)Float.parseFloat(new String(t.getValue()));
+                    break;
+            }
+        }
+        
+        return result;
+        
+    }
+    
+        public static int[] processBlindStateMessage(byte[] message) {
+        int[] result = new int[2];
+        for(Tlv t : Tlv.parse(message))
+        {
+            switch(t.getTag())
+            {
+                case TAG_MSG_TYPE:
+                {
+                    break;
+                }
+                case TAG_MSG_TO_DEVICE_ID:
+                    result[0] = (int)t.getValue()[3];
+                    break;
+                case TAG_MSG_BLIND_VALUE:
                     result[1] = (int)Float.parseFloat(new String(t.getValue()));
                     break;
             }
